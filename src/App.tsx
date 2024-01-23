@@ -1,25 +1,49 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-
+import styles from './App.module.css';
+import { Layout, Typography, Input, Menu, Button, Dropdown, } from "antd";
+import { GlobalOutlined } from "@ant-design/icons";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className={styles.App}>
+      <div className={styles['app-header']}>
+        <div className={styles['top-header']}>
+          <div className={styles.inner}>
+            <Typography.Text>Explore a world of travel with React.</Typography.Text>
+            <Dropdown.Button
+              style={{ marginLeft: 15 }}
+              overlay={
+                <Menu
+                  items={[
+                    { key: "1", label: "English" },
+                    { key: "2", label: "Deutsch" },
+                    { key: "3", label: "Francais" },
+                  ]}
+                />
+              }
+              icon={<GlobalOutlined />}
+            >Language</Dropdown.Button>
+            <Button.Group className={styles['button-group']}>
+              <Button>Create a free account</Button>
+              <Button>Sign in</Button>
+            </Button.Group>
+          </div>
+        </div>
+        <Layout.Header className={styles['main-header']}>
+          <img src={logo} alt="logo" className={styles['App-logo']} />
+          <Typography.Title level={3} className={styles.title}>Travel.com</Typography.Title>
+          <Input.Search placeholder='Search for fligghts, hotel and more' className={styles['search-input']} />
+        </Layout.Header>
+        <Menu mode={"horizontal"}
+          items = {[
+            { key:1, label: "Excplore everywhere" },
+            { key:2, label: "Let us inspire your next trip" },
+            { key:3, label: "Hotels" },
+            { key:4, label: "Car hire" },
+          ]}>
+        </Menu>
+      </div>
+    </div >
   );
 }
 
