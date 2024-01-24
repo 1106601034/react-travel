@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import styles from './App.module.css';
-import { Layout, Typography, Input, Menu, Button, Dropdown, } from "antd";
+import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
 
 function App() {
@@ -10,20 +10,22 @@ function App() {
       {/* top-header */}
       <div className={styles['top-header']}>
         <div className={styles.inner}>
-          <Typography.Text>Explore a world of travel with React.</Typography.Text>
-          <Dropdown.Button
-            style={{ marginLeft: 15 }}
-            overlay={
-              <Menu
-                items={[
-                  { key: "1", label: "English" },
-                  { key: "2", label: "Deutsch" },
-                  { key: "3", label: "Francais" },
-                ]}
-              />
-            }
-            icon={<GlobalOutlined />}
-          >Language</Dropdown.Button>
+          <Space wrap>
+            <Typography.Text>
+              Explore a world of travel with React.
+            </Typography.Text>
+            <Dropdown menu={{
+              items: [
+                { key: "1", label: "English" },
+                { key: "2", label: "Deutsch" },
+                { key: "3", label: "Francais" },
+              ]
+            }} >
+              <Button style={{ marginLeft: 15 }} >
+                <Space>Language<GlobalOutlined /></Space>
+              </Button>
+            </Dropdown>
+          </Space>
           <Button.Group className={styles['button-group']}>
             <Button>Create a free account</Button>
             <Button>Sign in</Button>
