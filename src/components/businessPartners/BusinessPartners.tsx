@@ -1,29 +1,42 @@
 import React from "react";
 import styles from './BusinessPartners.module.css';
-import { Row, Col, Divider } from "antd";
+import { Row, Col, Divider, Typography } from "antd";
 
 interface PropsType {
-    title: JSX.Element;
+    title: string;
     partners: any[];
 }
 
 export const BusinessPartners: React.FC<PropsType> = ({ title, partners }) => {
     return (
         <div className={styles.content}>
-            <Divider orientation="left">{title}</Divider>
+            <Divider orientation="left">
+                {<Typography.Title level={3}>
+                    {title}
+                </Typography.Title>}
+            </Divider>
             <Row>
-                <Col span={6}>
-                    <img src={partners[0]} height={120} width={240} alt="" />
+                {partners.map((url,index) => (
+                    <Col span={6} key={"bussiness-partner-" + index}>
+                        <img
+                            alt="bussiness-partner"
+                            src={url}
+                            className={styles.partnerImages}
+                        />
+                    </Col>
+                ))}
+                {/* <Col span={6}>
+                    <img src={partners[0]} className={styles.partnerImages} alt="business partners" />
                 </Col>
                 <Col span={6}>
-                    <img src={partners[1]} height={120} width={240} alt="" />
+                    <img src={partners[1]} className={styles.partnerImages} alt="business partners" />
                 </Col>
                 <Col span={6}>
-                    <img src={partners[2]} height={120} width={240} alt="" />
+                    <img src={partners[2]} className={styles.partnerImages} alt="business partners" />
                 </Col>
                 <Col span={6}>
-                    <img src={partners[3]} height={120} width={240} alt="" />
-                </Col>
+                    <img src={partners[3]} className={styles.partnerImages} alt="business partners" />
+                </Col> */}
             </Row>
         </div>
     );
