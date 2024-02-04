@@ -1,10 +1,13 @@
 import React from "react";
 import styles from './SideMenu.module.css';
-import { sideMenuList } from "../../mockups/fakeSideMenu";
 import { Menu, } from "antd";
 import { GifOutlined } from "@ant-design/icons";
 
-export const SideMenu: React.FC = () => {
+interface PropsType {
+    sideMenuList: any[];
+}
+
+export const SideMenu: React.FC<PropsType> = ({sideMenuList}) => {
     return (
         <Menu 
             mode={"vertical"}
@@ -18,7 +21,8 @@ export const SideMenu: React.FC = () => {
                         children: m.subMenu.map((sm) => ({
                             label: sm.title,
                             key: sm.title,
-                            icon: <GifOutlined />,                        children: m.subMenu.map((sms) => ({
+                            icon: <GifOutlined />,
+                            children: m.subMenu.map((sms) => ({
                                 label: sms.title,
                                 key: sms.title,
                                 icon: <GifOutlined />,

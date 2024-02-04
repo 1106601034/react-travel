@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./App.module.css";
 import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "./components";
 import { Row, Col, Typography } from "antd";
-import { productList1, productList2, productList3 } from "./mockups/fakeProducts";
+import { sideMenuList, productList1, productList2, productList3 } from "./mockups/fakeProducts";
+import logoImage from './assets/logo.svg';
 import carouselImage1 from "./assets/images/carousel_1.jpg";
 import carouselImage2 from "./assets/images/carousel_2.jpg";
 import carouselImage3 from "./assets/images/carousel_3.jpg";
@@ -17,13 +18,15 @@ import parterImage4 from "./assets/images/facebook-807588_640.png";
 function App() {
   return (
     <div className={styles.App}>
-    <Header />
+      <Header logo={logoImage} />
       <div className={styles['page-content']}>
         <Row style={{ marginTop: 20 }}>
-          <Col span={6}><SideMenu /></Col>
+          <Col span={6}>
+            <SideMenu sideMenuList={sideMenuList} />
+          </Col>
           <Col span={18}>
-            <Carousel image = {[carouselImage1, carouselImage2, carouselImage3]}/>
-            </Col>
+            <Carousel image={[carouselImage1, carouselImage2, carouselImage3]} />
+          </Col>
         </Row>
         <ProductCollection
           title={<Typography.Title level={3} type='warning'>
@@ -47,7 +50,7 @@ function App() {
           products={productList3}
         />
         <BusinessPartners
-          title= "Business Partners"
+          title="Business Partners"
           partners={[parterImage1, parterImage2, parterImage3, parterImage4]}
         />
       </div>

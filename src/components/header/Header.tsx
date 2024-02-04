@@ -1,10 +1,13 @@
 import React from "react";
-import logo from '../../assets/logo.svg';
 import styles from './Header.module.css';
 import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
 
-export const Header: React.FC = () => {
+interface PropsType {
+    logo: string;
+}
+
+export const Header: React.FC<PropsType> = ({logo}) => {
     return (
         <div className={styles['app-header']}>
             <div className={styles['top-header']}>
