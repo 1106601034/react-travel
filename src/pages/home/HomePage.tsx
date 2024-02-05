@@ -3,7 +3,7 @@ import styles from "./HomePage.Module.css";
 import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
 import { Row, Col, Typography } from "antd";
 import { sideMenuList, productList1, productList2, productList3 } from "./fakeProducts";
-import logoImage from "./assets/logo.svg";
+import logoImage from "../../assets/logo.svg";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
 import carouselImage3 from "../../assets/images/carousel_3.jpg";
