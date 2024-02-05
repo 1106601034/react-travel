@@ -9,3 +9,4 @@ npm install @ant-design/icons --save
 # npm install bootstrap-icons
 npm install react-router-dom@5
 npm install --save @types/react-router-dom --save-dev
+cd ..
