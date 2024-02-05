@@ -16,46 +16,46 @@ import parterImage3 from "./assets/images/follow-826033_640.png";
 import parterImage4 from "./assets/images/facebook-807588_640.png";
 
 function App() {
-  return (
-    <div className={styles.App}>
-      <Header logo={logoImage} />
-      <div className={styles['page-content']}>
-        <Row style={{ marginTop: 20 }}>
-          <Col span={6}>
-            <SideMenu sideMenuList={sideMenuList} />
-          </Col>
-          <Col span={18}>
-            <Carousel image={[carouselImage1, carouselImage2, carouselImage3]} />
-          </Col>
-        </Row>
-        <ProductCollection
-          title={<Typography.Title level={3} type='warning'>
-            Big Deal
-          </Typography.Title>}
-          sideImage={sideImage1}
-          products={productList1}
-        />
-        <ProductCollection
-          title={<Typography.Title level={3} type='danger'>
-            New arrival
-          </Typography.Title>}
-          sideImage={sideImage2}
-          products={productList2}
-        />
-        <ProductCollection
-          title={<Typography.Title level={3} type='success'>
-            Feature
-          </Typography.Title>}
-          sideImage={sideImage3}
-          products={productList3}
-        />
-        <BusinessPartners
-          title="Business Partners"
-          partners={[parterImage1, parterImage2, parterImage3, parterImage4]}
-        />
-      </div>
-      <Footer />
-    </div >
-  );
+    return (
+        <div className={styles.App}>
+            <div className={styles['page-content']}>
+                <Header logo={logoImage} />
+                <Row style={{ marginTop: 20 }}>
+                    <Col span={6}>
+                        <SideMenu sideMenuList={sideMenuList} />
+                    </Col>
+                    <Col span={18}>
+                        <Carousel image={[carouselImage1, carouselImage2, carouselImage3]} />
+                    </Col>
+                </Row>
+                <ProductCollection
+                    title={<Typography.Title level={3} type='warning'>
+                        Big Deal
+                    </Typography.Title>}
+                    sideImage={sideImage1}
+                    products={productList1}
+                />
+                <ProductCollection
+                    title={<Typography.Title level={3} type='danger'>
+                        New arrival
+                    </Typography.Title>}
+                    sideImage={sideImage2}
+                    products={productList2}
+                />
+                <ProductCollection
+                    title={<Typography.Title level={3} type='success'>
+                        Feature
+                    </Typography.Title>}
+                    sideImage={sideImage3}
+                    products={productList3}
+                />
+                <BusinessPartners
+                    title="Business Partners"
+                    partners={[parterImage1, parterImage2, parterImage3, parterImage4]}
+                />
+            </div>
+            <Footer />
+        </div >
+    );
 }
 export default App;
