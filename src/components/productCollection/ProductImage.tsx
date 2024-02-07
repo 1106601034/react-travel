@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Image, Typography, } from "antd";
 
 interface PropsType {
@@ -9,8 +10,10 @@ interface PropsType {
     title: string;
 }
 
-export const ProductImage: React.FC<PropsType> = ({ id, size, imageSrc, price, title }) => {
-    return <>
+export const ProductImage: React.FC<PropsType> = ({
+    id, size, imageSrc, price, title
+}) => {
+    return <Link to={`detail/${id}`} >
         {
             size === "large" ? (
                 <Image src={imageSrc} height={285} width={490} />
@@ -24,5 +27,5 @@ export const ProductImage: React.FC<PropsType> = ({ id, size, imageSrc, price, t
             </Typography.Text>
             <Typography.Text type="danger" strong> From ${price}</Typography.Text>
         </div>
-    </>
+    </Link>
 }

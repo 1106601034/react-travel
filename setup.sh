@@ -3,7 +3,7 @@ npx create-react-app a --template typescript
 cd ./a
 
 npm install react-icons --save
-npm install react-router-dom@5
+npm install react-router-dom
 
 npm install @types/react-router-dom --save-dev
 npm install typescript-plugin-css-modules

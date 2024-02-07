@@ -2,12 +2,15 @@ import React from "react";
 import styles from './Header.module.css';
 import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
+// import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, } from "react-router-dom";
 
 interface PropsType {
     logo: string;
 }
 
-export const Header: React.FC<PropsType> = ({logo}) => {
+export const Header: React.FC<PropsType> = ({ logo }) => {
+    const navigate = useNavigate();
     return (
         <div className={styles['app-header']}>
             <div className={styles['top-header']}>
@@ -29,14 +32,16 @@ export const Header: React.FC<PropsType> = ({logo}) => {
                         </Dropdown>
                     </Space>
                     <Button.Group className={styles['button-group']}>
-                        <Button>Create a free account</Button>
-                        <Button>Sign in</Button>
+                        <Button onClick={() => navigate('createAccount')}>Create a free account</Button>
+                        <Button onClick={() => navigate('signIn')}>Sign in</Button>
                     </Button.Group>
                 </div>
             </div>
             <Layout.Header className={styles['main-header']}>
-                <img src={logo} alt="logo" className={styles['App-logo']} />
-                <Typography.Title level={3} className={styles.title}>Travel.com</Typography.Title>
+                <span onClick={() => navigate('/')}>
+                    <img src={logo} alt="logo" className={styles['App-logo']} />
+                    <Typography.Title level={3} className={styles.title}>Travel.com</Typography.Title>
+                </span>
                 <Input.Search placeholder='Search for fligghts, hotel and more' className={styles['search-input']} />
             </Layout.Header>
             <Menu mode={"horizontal"}
