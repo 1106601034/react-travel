@@ -1,6 +1,6 @@
 
 export interface LanguageState {
-    language: "de" | "en" | "fr";
+    language: "de" | "en";
     languageList: {
         name: string, 
         code: string
@@ -12,10 +12,34 @@ const defaultState: LanguageState = {
     languageList: [
         { name: "Deutsch", code: "de" },
         { name: "English", code: "en" },
-        { name: "Francais", code: "fr" },
     ], 
 };
 
 export default (state = defaultState, action) => {
-    return state;
-};
+    switch (action.type) {
+      case "change_language":
+        return { ...state, language: action.payload };
+      case "add_language":
+        return {
+          ...state,
+          languageList: [...state.languageList, action.payload],
+        };
+      default:
+        return state;
+    }
+  };
+  
+  // export default (state = defaultState, action) => {
+  //     if(action.type === "change_language") {
+  //         const newState = {...state, language: action.payload };
+  //         return newState;
+  //     }
+  //     if(action.type === "add_language") {
+  //         const newState = {
+  //             ...state, 
+  //             languageList: [...state.languageList, action.payload]
+  //         };
+  //         return newState;
+  //     }
+  //     return state;
+  // };

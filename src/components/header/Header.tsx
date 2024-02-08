@@ -23,7 +23,6 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
                             items: [
                                 { key: "1", label: "Deutsch" },
                                 { key: "2", label: "English" },
-                                { key: "3", label: "Francais" },
                             ]
                         }} >
                             <Button style={{ marginLeft: 15 }} >

@@ -13,12 +13,37 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
 
     constructor(props) {
         super(props);
-        const storestate = store.getState();
+        const storeState = store.getState();
         this.state = {
-            language: storestate.language,
-            languageList: storestate.languageList,
+            language: storeState.language,
+            languageList: storeState.languageList,
         };
+        store.subscribe(this.handleStoreChange);
     }
+
+    handleStoreChange = () => {
+        const storeState = store.getState();
+        this.setState({
+            language: storeState.language,
+            languageList: storeState.languageList,
+        });
+    }
+
+    menuClickHandler = (e) => {
+        if (e.key === "new") {
+            const action = {
+                type: "add_language",
+                payload: { code: "new_lang", name: "jk" }
+            }
+            store.dispatch(action);
+        } else {
+            const action = {
+                type: "change_language",
+                payload: e.key,
+            };
+            store.dispatch(action);
+        }
+    };
 
     render() {
         const { navigate } = this.props;
@@ -36,16 +61,21 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
                                 Explore a world of travel with React.
                             </Typography.Text>
                             <Dropdown.Button
+                                style={{ marginLeft: 15 }}
                                 overlay={
-                                    <Menu items={this.state.languageList.map(
-                                        (l) => {
-                                            return { key: l.code, label: l.name };
-                                        }
-                                    )} />
+                                    <Menu
+                                        onClick={this.menuClickHandler}
+                                        items={[
+                                            ...this.state.languageList.map((l) => {
+                                                return { key: l.code, label: l.name };
+                                            }),
+                                            { key: "new", label: "Add..." },
+                                        ]}
+                                    />
                                 }
                                 icon={<GlobalOutlined />}
                             >
-                                {this.state.language === "de" ? "Deutsch" : "en" ? "English" : "Francais"}
+                                {this.state.language === "de" ? "Deutsch" : "English"}
                             </Dropdown.Button>
                         </Space>
 
