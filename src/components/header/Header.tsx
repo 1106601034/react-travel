@@ -21,8 +21,8 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
                         </Typography.Text>
                         <Dropdown menu={{
                             items: [
-                                { key: "1", label: "English" },
-                                { key: "2", label: "Deutsch" },
+                                { key: "1", label: "Deutsch" },
+                                { key: "2", label: "English" },
                                 { key: "3", label: "Francais" },
                             ]
                         }} >
