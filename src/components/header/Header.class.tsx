@@ -47,7 +47,6 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
 
     render() {
         const { navigate } = this.props;
-
         // const history = useHistory();
         // const location = useLocation();
         // const params = useParams();
