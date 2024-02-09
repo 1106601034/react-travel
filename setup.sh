@@ -15,4 +15,6 @@ npm install @ant-design/icons --save
 # npm install bootstrap
 # npm install bootstrap-icons
 
+npm install react-i18next i18next --save
+
 cd ..
