@@ -5,6 +5,7 @@ import App from './App';
 import 'antd/dist/antd.min.css';
 // import reportWebVitals from './reportWebVitals';
 import reportWebVitals from './reportWebVitals';
+import './i18n/configs';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
