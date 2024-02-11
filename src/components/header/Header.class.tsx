@@ -47,7 +47,7 @@ class HeaderComponent extends React.Component<RouteComponentProps & WithTranslat
     };
 
     render() {
-        const { navigate } = this.props;
+        const { navigate, t } = this.props;
         // const history = useHistory();
         // const location = useLocation();
         // const params = useParams();
@@ -58,7 +58,7 @@ class HeaderComponent extends React.Component<RouteComponentProps & WithTranslat
                     <div className={styles.inner}>
                         <Space wrap>
                             <Typography.Text>
-                                Explore a world of travel with React.
+                                {t("header.slogan")}.
                             </Typography.Text>
                             <Dropdown.Button
                                 style={{ marginLeft: 15 }}
