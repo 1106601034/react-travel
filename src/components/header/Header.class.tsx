@@ -6,10 +6,11 @@ import { GlobalOutlined } from "@ant-design/icons";
 import { withRouter, RouteComponentProps, } from "../../helpers/withRouter";
 import store from "../../redux/store";
 import { LanguageState } from "../../redux/languageReducer";
+import { withTranslation, WithTranslation } from "react-i18next";
 
 interface State extends LanguageState { }
 
-class HeaderComponnet extends React.Component<RouteComponentProps, State> {
+class HeaderComponent extends React.Component<RouteComponentProps & WithTranslation, State> {
 
     constructor(props) {
         super(props);
@@ -74,7 +75,7 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
                                 }
                                 icon={<GlobalOutlined />}
                             >
-                                {this.state.language === "de" ? "Deutsch" : "English"}
+                                {this.state.language === "en" ? "English" : "Mandarin"}
                             </Dropdown.Button>
                         </Space>
 
@@ -104,4 +105,4 @@ class HeaderComponnet extends React.Component<RouteComponentProps, State> {
     };
 }
 
-export const Header = withRouter(HeaderComponnet);
+export const Header = withTranslation()(HeaderComponent);

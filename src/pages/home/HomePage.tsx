@@ -14,11 +14,11 @@ import parterImage1 from "../../assets/images/microsoft-80658_640.png";
 import parterImage2 from "../../assets/images/icon-720944_640.png";
 import parterImage3 from "../../assets/images/follow-826033_640.png";
 import parterImage4 from "../../assets/images/facebook-807588_640.png";
-import { WithTranslation, withTranslation } from "react-i18next";
+import { withTranslation, WithTranslation } from "react-i18next";
 
- class HomePageComponent extends React.Component<WithTranslation> {
+class HomePageComponent extends React.Component<WithTranslation> {
     render() {
-        const  {t} = this.props;
+        const { t } = this.props;
         return <>
             <div className={styles['page-content']}>
                 <Header logo={logoImage} />
@@ -32,7 +32,7 @@ import { WithTranslation, withTranslation } from "react-i18next";
                 </Row>
                 <ProductCollection
                     title={<Typography.Title level={3} type='warning'>
-                        Big Deal
+                        {t("home_page.hot_recommended")}
                     </Typography.Title>}
                     sideImage={sideImage1}
                     products={productList1}
