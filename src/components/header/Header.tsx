@@ -64,7 +64,7 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
               }
               icon={<GlobalOutlined />}
             >
-              {language === "en" ? "English" : "Mandarin"}
+              {t("header.language")}
             </Dropdown.Button>
           </Space>
           <Button.Group className={styles["button-group"]}>

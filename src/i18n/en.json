@@ -3,6 +3,7 @@
         "slogan": "Make travel happier",
         "add_new_language": "add new language",
         "title": "React Travel",
+        "language": "English",
         "register":"Register",
         "signin":"Sign In",
         "search_placeholder":"Search for fligghts, hotel and more",
