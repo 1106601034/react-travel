@@ -19,7 +19,7 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
                         <Typography.Text>
                             Explore a world of travel with React.
                         </Typography.Text>
-                        <Dropdown menu={{
+                        {/* <Dropdown menu={{
                             items: [
                                 { key: "1", label: "Deutsch" },
                                 { key: "2", label: "English" },
@@ -28,7 +28,7 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
                             <Button style={{ marginLeft: 15 }} >
                                 <Space>Language<GlobalOutlined /></Space>
                             </Button>
-                        </Dropdown>
+                        </Dropdown> */}
                     </Space>
                     <Button.Group className={styles['button-group']}>
                         <Button onClick={() => navigate('createAccount')}>Create a free account</Button>

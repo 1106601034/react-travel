@@ -17,7 +17,7 @@ const defaultState: LanguageState = {
     ],
 };
 
-export default (state = defaultState, action) => {
+export default (state = defaultState, action:LanguageActionTypes) => {
     switch (action.type) {
         case CHANGE_LANGUAGE:
             // not recommend:
