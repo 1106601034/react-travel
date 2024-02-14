@@ -18,3 +18,6 @@ CMD ["nginx", "-g", "daemon off;"]
 # docker images
 # docker run -d -p 3000:80 react-web
 # docker ps
+# sudo docker-compose down
+# sudo docker-compose up -d
+# sudo docker-compose images
