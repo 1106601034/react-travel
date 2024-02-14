@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
 import { Row, Col, Typography } from "antd";
-import { sideMenuList, productList1, productList2, productList3 } from "./fakeProducts";
+import { sideMenuList, productList1, productList2, productList3 } from "../../assets/fakeProducts";
 import logoImage from "../../assets/logo.svg";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
@@ -21,7 +21,7 @@ class HomePageComponent extends React.Component<WithTranslation> {
         const { t } = this.props;
         return <>
             <div className={styles['page-content']}>
-                <Header logo={logoImage}/>
+                <Header logo={logoImage} />
                 <Row style={{ marginTop: 20 }}>
                     <Col span={6}>
                         <SideMenu sideMenuList={sideMenuList} />
@@ -31,28 +31,39 @@ class HomePageComponent extends React.Component<WithTranslation> {
                     </Col>
                 </Row>
                 <ProductCollection
-                    title={<Typography.Title level={3} type='warning'>
-                        {t("home_page.hot_recommended")}
-                    </Typography.Title>}
+                    string={[
+                        <Typography.Title level={3} type='warning'>
+                            {t("home_page.big_deal")}
+                        </Typography.Title>
+                        , t("home_page.from")
+                    ]}
                     sideImage={sideImage1}
                     products={productList1}
                 />
                 <ProductCollection
-                    title={<Typography.Title level={3} type='danger'>
-                        New arrival
-                    </Typography.Title>}
+                    string={[
+                        <Typography.Title level={3} type='danger'>
+                            {t("home_page.new_arrival")}
+                        </Typography.Title>
+                        , t("home_page.from")
+                    ]}
                     sideImage={sideImage2}
                     products={productList2}
                 />
                 <ProductCollection
-                    title={<Typography.Title level={3} type='success'>
-                        Feature
-                    </Typography.Title>}
+                    string={[
+                        <Typography.Title level={3} type='success'>
+                            {t("home_page.feature")}
+                        </Typography.Title>
+                        , t("home_page.from")
+                    ]}
                     sideImage={sideImage3}
                     products={productList3}
                 />
                 <BusinessPartners
-                    title="Business Partners"
+                    title={<Typography.Title>
+                        {t("home_page.partners")}
+                    </Typography.Title>}
                     partners={[parterImage1, parterImage2, parterImage3, parterImage4]}
                 />
             </div>

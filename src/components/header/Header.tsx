@@ -85,7 +85,7 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
           </Typography.Title>
         </span>
         <Input.Search
-          placeholder={"Search for fligghts, hotel and more"}
+          placeholder={t("header.search_placeholder")}
           className={styles["search-input"]}
         />
       </Layout.Header>
@@ -93,10 +93,10 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
         mode={"horizontal"}
         className={styles["main-menu"]}
         items={[
-          { key: 1, label: "Excplore everywhere" },
-          { key: 2, label: "Let us inspire your next trip" },
-          { key: 3, label: "Hotels" },
-          { key: 4, label: "Car hire" },
+          { key: 1, label: t("header.destinations") },
+          { key: 2, label: t("header.planing") },
+          { key: 3, label: t("header.hotels") },
+          { key: 4, label: t("header.car_hire") },
         ]}
       />
     </div>

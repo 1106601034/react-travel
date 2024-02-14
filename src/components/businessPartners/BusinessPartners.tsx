@@ -3,7 +3,7 @@ import styles from './BusinessPartners.module.css';
 import { Row, Col, Divider, Typography } from "antd";
 
 interface PropsType {
-    title: string;
+    title: JSX.Element;
     partners: any[];
 }
 

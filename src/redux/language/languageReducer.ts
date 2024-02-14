@@ -13,7 +13,7 @@ const defaultState: LanguageState = {
     language: "en",
     languageList: [
         { name: "English", code: "en" },
-        { name: "Mandarin", code: "zh" },
+        { name: "简体中文", code: "zh" },
     ],
 };
 

@@ -7,12 +7,13 @@ interface PropsType {
     size: "large" | "small";
     imageSrc: string;
     price: number | string;
-    title: string;
+    productImageString: string[];
 }
 
 export const ProductImage: React.FC<PropsType> = ({
-    id, size, imageSrc, price, title
+    id, size, imageSrc, price, productImageString
 }) => {
+
     return <Link to={`detail/${id}`} >
         {
             size === "large" ? (
@@ -23,9 +24,11 @@ export const ProductImage: React.FC<PropsType> = ({
         }
         <div>
             <Typography.Text type="secondary">
-                {title.slice(0, 25)}
+                {productImageString[0].slice(0, 25)}
             </Typography.Text>
-            <Typography.Text type="danger" strong> From ${price}</Typography.Text>
+            <Typography.Text type="danger" strong>
+                {productImageString[1]}${price}
+            </Typography.Text>
         </div>
     </Link>
 }
