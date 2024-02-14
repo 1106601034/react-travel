@@ -7,21 +7,52 @@ import { withRouter, RouteComponentProps, } from "../../helpers/withRouter";
 import store from "../../redux/store";
 import { LanguageState } from "../../redux/language/languageReducer";
 import { withTranslation, WithTranslation } from "react-i18next";
-import { addLanguageActionCreator, changeLanguageActionCreator } from "../../redux/language/languageActions";
+import {
+    addLanguageActionCreator,
+    changeLanguageActionCreator,
+} from "../../redux/language/languageActions";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { RootState } from "../../redux/store";
 
-interface State extends LanguageState { }
+// interface State extends LanguageState { }
 
-class HeaderComponent extends React.Component<RouteComponentProps & WithTranslation, State> {
+const mapStateToProps = (state: RootState) => {
+    return {
+        language: state.language,
+        languageList: state.languageList,
+    };
+};
 
-    constructor(props) {
-        super(props);
-        const storeState = store.getState();
-        this.state = {
-            language: storeState.language,
-            languageList: storeState.languageList,
-        };
-        store.subscribe(this.handleStoreChange);
-    }
+const mapDispatchToProps = (dispatch: Dispatch) => {
+    return {
+        changeLanguage: (code: "en" | "zh") => {
+            const action = changeLanguageActionCreator(code);
+            dispatch(action);
+        },
+        addLanguage: (name: string, code: string) => {
+            const action = addLanguageActionCreator(name, code);
+            dispatch(action);
+        },
+    };
+};
+
+type PropsType =
+    RouteComponentProps & // typr of router props react-router
+    WithTranslation & // type of props of i18n
+    ReturnType<typeof mapStateToProps> & // type of map of redux store
+    ReturnType<typeof mapDispatchToProps>; // type of map of redux dispatch
+
+class HeaderComponent extends React.Component<PropsType> {
+    // constructor(props) {
+    //     super(props);
+    //     const storeState = store.getState();
+    //     this.state = {
+    //         language: storeState.language,
+    //         languageList: storeState.languageList,
+    //     };
+    //     store.subscribe(this.handleStoreChange);
+    // }
 
     handleStoreChange = () => {
         const storeState = store.getState();
@@ -61,7 +92,7 @@ class HeaderComponent extends React.Component<RouteComponentProps & WithTranslat
                                     <Menu
                                         onClick={this.menuClickHandler}
                                         items={[
-                                            ...this.state.languageList.map((l) => {
+                                            ...this.props.languageList.map((l) => {
                                                 return { key: l.code, label: l.name };
                                             }),
                                             { key: "new", label: "Add..." },
@@ -70,7 +101,7 @@ class HeaderComponent extends React.Component<RouteComponentProps & WithTranslat
                                 }
                                 icon={<GlobalOutlined />}
                             >
-                                {this.state.language === "en" ? "English" : "Mandarin"}
+                                {this.props.language === "en" ? "English" : "Mandarin"}
                             </Dropdown.Button>
                         </Space>
 
@@ -100,4 +131,13 @@ class HeaderComponent extends React.Component<RouteComponentProps & WithTranslat
     };
 }
 
-export const Header = withTranslation()(HeaderComponent);
+export const Header = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(
+    withTranslation()(
+        withRouter(
+            HeaderComponent
+        )
+    )
+);
