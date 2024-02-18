@@ -71,7 +71,7 @@ class HomePageComponent extends React.Component<WithTranslation, State> {
         return <>
             <div className={styles['page-content']}>
                 <Header logo={logoImage} />
-                <Row style={{ marginTop: 20 }}>
+                <Row>
                     <Col span={6}>
                         <SideMenu />
                     </Col>

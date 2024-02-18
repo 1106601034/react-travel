@@ -25,7 +25,7 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
   const navigate = useNavigate();
   // const location = useLocation();
   // const params = useParams();
-  const language = useSelector((state) => state.language);
+  // const language = useSelector((state) => state.language);
   const languageList = useSelector((state) => state.languageList);
   const dispatch = useDispatch();
   // const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
@@ -42,7 +42,6 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
 
   return (
     <div className={styles["app-header"]}>
-      {/* top-header */}
       <div className={styles["top-header"]}>
         <div className={styles.inner}>
           <Space wrap>
