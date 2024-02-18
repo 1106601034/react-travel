@@ -3,8 +3,8 @@ import styles from "./Header.module.css";
 import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
 import {
-  // useParams,
-  // useLocation,
+  useParams,
+  useLocation,
   useNavigate
 } from "react-router-dom";
 import { useSelector } from "../../redux/hooks";
@@ -23,10 +23,10 @@ interface PropsType {
 
 export const Header: React.FC<PropsType> = ({ logo }) => {
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const params = useParams();
-  // const language = useSelector((state) => state.language);
-  const languageList = useSelector((state) => state.languageList);
+  const location = useLocation();
+  const params = useParams();
+  const language = useSelector((state) => state.language.language);
+  const languageList = useSelector((state) => state.language.languageList);
   const dispatch = useDispatch();
   // const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
   const { t } = useTranslation();

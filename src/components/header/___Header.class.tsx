@@ -5,7 +5,7 @@ import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
 import { withRouter, RouteComponentProps, } from "../../helpers/withRouter";
 import store from "../../redux/store";
-import { LanguageState } from "../../redux/language/languageReducer";
+// import { LanguageState } from "../../redux/language/languageReducer";
 import { withTranslation, WithTranslation } from "react-i18next";
 import {
     addLanguageActionCreator,
@@ -19,8 +19,8 @@ import { RootState } from "../../redux/store";
 
 const mapStateToProps = (state: RootState) => {
     return {
-        language: state.language,
-        languageList: state.languageList,
+        language: state.language.language,
+        languageList: state.language.languageList,
     };
 };
 
@@ -57,8 +57,8 @@ class HeaderComponent extends React.Component<PropsType> {
     handleStoreChange = () => {
         const storeState = store.getState();
         this.setState({
-            language: storeState.language,
-            languageList: storeState.languageList,
+            language: storeState.language.language,
+            languageList: storeState.language.languageList,
         });
     }
 

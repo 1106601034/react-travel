@@ -15,44 +15,72 @@ import parterImage2 from "../../assets/images/icon-720944_640.png";
 import parterImage3 from "../../assets/images/follow-826033_640.png";
 import parterImage4 from "../../assets/images/facebook-807588_640.png";
 import { withTranslation, WithTranslation } from "react-i18next";
-// import axios from "axios";
+import axios from "axios";
+import { connect } from "react-redux";
+import { RootState } from "../../redux/store";
+import {
+    fetchRecommendProductFailActionCreator,
+    fetchRecommendProductSuccessActionCreator,
+    fetchRecommendProductStartActionCreator,
+} from "../../redux/recommendProducts/recommendProductsActions";
 
-interface State {
-    loading: boolean
-    error: string | null,
-    // productList: any[]
+// interface State {
+//     loading: boolean
+//     error: string | null,
+//     // productList: any[]
+// }
+
+const mapStateToProps = (state: RootState) => {
+    return {
+        loading: state.recommendProducts.loading,
+        error: state.recommendProducts.error,
+        productList: state.recommendProducts.productList
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchStart: () => {
+            dispatch(fetchRecommendProductStartActionCreator());
+        },
+        fetchSuccess: (data) => {
+            dispatch(fetchRecommendProductSuccessActionCreator(data));
+        },
+        fetchFail: (error) => {
+            dispatch(fetchRecommendProductFailActionCreator(error));
+        },
+    }
 }
 
-class HomePageComponent extends React.Component<WithTranslation, State> {
+type PropsType = WithTranslation &
+    ReturnType<typeof mapStateToProps> &
+    ReturnType<typeof mapDispatchToProps>
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: true,
-            error: null,
-            // productList: [],
-        };
-    }
+class HomePageComponent extends React.Component<PropsType /* State */> {
+
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         loading: true,
+    //         error: null,
+    //         // productList: [],
+    //     };
+    // }
 
     async componentDidMount() {
+        this.props.fetchStart()
         try {
-            // const { data } = await axios.get("");
-            this.setState({
-                loading: false,
-                error: null,
-                // productList: data,
-            });
+            const { data } = await axios.get("");
+            this.props.fetchSuccess(data)
         } catch (error) {
-            if (error instanceof Error) {
-                this.setState({ error: error.message, loading: false })
-            }
+            this.props.fetchFail(error instanceof Error ? error.message : "error")
         }
     }
 
     render() {
-        const { t } = this.props;
+        const { t, loading, error, } = this.props;
         // const { productList, loading, error, } = this.state
-        const { loading, error, } = this.state
+        // const { loading, error, } = this.state
         if (loading) {
             return <Spin
                 size="large"
@@ -121,4 +149,11 @@ class HomePageComponent extends React.Component<WithTranslation, State> {
     }
 }
 
-export const HomePage = withTranslation()(HomePageComponent);
+export const HomePage = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(
+    withTranslation()(
+        HomePageComponent
+    )
+);
