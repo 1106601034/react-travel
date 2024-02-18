@@ -22,5 +22,17 @@
         "feature": "热销",
         "partners": "合作品牌",
         "from": " 最低"
+    },
+    "side_menu": {
+        "stays": "住宿",
+        "flights": "航班",
+        "cars": "司机接送",
+        "packages": "行李运输",
+        "abouut_us": "关于我们",
+        "products1": "产品名称1",
+        "products2": "产品名称2",
+        "products3": "产品名称3",
+        "our_story": "企业文化",
+        "contact": "联系方式"
     }
 }

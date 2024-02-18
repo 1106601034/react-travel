@@ -1,6 +1,6 @@
 {
     "header": {
-        "slogan": "Make travel happier",
+        "slogan": "Make your journey different",
         "add_new_language": "add new language",
         "title": "React Travel",
         "language": "English",
@@ -22,5 +22,17 @@
         "feature": "Feature",
         "partners": "Partners",
         "from": " from "
+    },
+    "side_menu": {
+        "stays": "Stays",
+        "flights": "Flights",
+        "cars": "Cars",
+        "packages": "Packages",
+        "abouut_us": "About Us",
+        "products1": "Products1",
+        "products2": "Products2",
+        "products3": "Products3",
+        "our_story": "Our story",
+        "contact": "Contact us"
     }
 }

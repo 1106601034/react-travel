@@ -2,12 +2,11 @@ import React from "react";
 import styles from './SideMenu.module.css';
 import { Menu, } from "antd";
 import { CarOutlined } from "@ant-design/icons";
+import { sideMenuList } from "./fakeProducts";
+import { useTranslation } from "react-i18next";
 
-interface PropsType {
-    sideMenuList: any[];
-}
-
-export const SideMenu: React.FC<PropsType> = ({sideMenuList}) => {
+export const SideMenu: React.FC = () => {
+    const {t} = useTranslation();
     return (
         <Menu 
             mode={"vertical"}
@@ -15,11 +14,11 @@ export const SideMenu: React.FC<PropsType> = ({sideMenuList}) => {
             items={
                 sideMenuList.map((m) => (
                     {
-                        label: m.title,
+                        label: t(m.title),
                         icon: <CarOutlined />,
                         key: m.title,
                         children: m.subMenu.map((sm) => ({
-                            label: sm.title,
+                            label: t(sm.title),
                             key: sm.title,
                             icon: <CarOutlined />
                         })),

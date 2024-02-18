@@ -34,7 +34,7 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
   const menuClickHandler = (e) => {
     console.log(e);
     if (e.key === "new") {
-      dispatch(addLanguageActionCreator("new", "new_lang"));
+      dispatch(addLanguageActionCreator("sry jk :)", "new_lang"));
     } else {
       dispatch(changeLanguageActionCreator(e.key));
     }

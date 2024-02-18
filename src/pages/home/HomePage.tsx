@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
 import { Row, Col, Typography, Spin, } from "antd";
-import { sideMenuList, productList1, productList2, productList3 } from "../../assets/fakeProducts";
+import { productList1, productList2, productList3 } from "../../assets/fakeProducts";
 import logoImage from "../../assets/logo.svg";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
@@ -73,7 +73,7 @@ class HomePageComponent extends React.Component<WithTranslation, State> {
                 <Header logo={logoImage} />
                 <Row style={{ marginTop: 20 }}>
                     <Col span={6}>
-                        <SideMenu sideMenuList={sideMenuList} />
+                        <SideMenu />
                     </Col>
                     <Col span={18}>
                         <Carousel image={[carouselImage1, carouselImage2, carouselImage3]} />
