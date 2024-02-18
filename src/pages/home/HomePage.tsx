@@ -70,12 +70,14 @@ class HomePageComponent extends React.Component<PropsType /* State */> {
     async componentDidMount() {
         this.props.fetchStart()
         try {
-            const { data } = await axios.get("");
-            this.props.fetchSuccess(data)
+          const { data } = await axios.get(
+            "http://123.56.149.216:8080/api/productCollections"
+          );
+          this.props.fetchSuccess(data)
         } catch (error) {
-            this.props.fetchFail(error instanceof Error ? error.message : "error")
+          this.props.fetchFail(error instanceof Error ? error.message : "error")
         }
-    }
+      }
 
     render() {
         const { t, loading, error, } = this.props;
