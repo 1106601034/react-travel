@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
 import { Row, Col, Typography, Spin, } from "antd";
-import logoImage from "../../assets/logo.svg";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
 import carouselImage3 from "../../assets/images/carousel_3.jpg";
@@ -63,7 +62,7 @@ class HomePageComponent extends React.Component<PropsType> {
         }
         return <>
             <div className={styles['page-content']}>
-                <Header logo={logoImage} />
+                <Header />
                 <Row>
                     <Col span={6}>
                         <SideMenu />

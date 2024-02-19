@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
+import logo from "../../assets/logo.svg";
 import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +9,7 @@ import { useDispatch } from "react-redux";
 import { addLanguageActionCreator, changeLanguageActionCreator, } from "../../redux/language/languageActions";
 import { useTranslation } from "react-i18next";
 
-interface PropsType {
-  logo: any;
-}
-
-export const Header: React.FC<PropsType> = ({ logo }) => {
+export const Header: React.FC = () => {
   const navigate = useNavigate();
   const languageList = useSelector((state) => state.language.languageList);
   const dispatch = useDispatch();
