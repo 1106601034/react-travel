@@ -71,7 +71,7 @@ class HomePageComponent extends React.Component<PropsType /* State */> {
         this.props.fetchStart()
         try {
           const { data } = await axios.get(
-            "http://123.56.149.216:8080/api/productCollections"
+            "http://82.157.43.234:8080/api/productCollections"
           );
           this.props.fetchSuccess(data)
         } catch (error) {
@@ -80,7 +80,7 @@ class HomePageComponent extends React.Component<PropsType /* State */> {
       }
 
     render() {
-        const { t, loading, error, } = this.props;
+        const { t, productList, loading, error, } = this.props;
         // const { productList, loading, error, } = this.state
         // const { loading, error, } = this.state
         if (loading) {
@@ -117,7 +117,7 @@ class HomePageComponent extends React.Component<PropsType /* State */> {
                         , t("home_page.from")
                     ]}
                     sideImage={sideImage1}
-                    products={productList1}
+                    products={productList[0].touristRoutes}
                 />
                 <ProductCollection
                     string={[
@@ -127,7 +127,7 @@ class HomePageComponent extends React.Component<PropsType /* State */> {
                         , t("home_page.from")
                     ]}
                     sideImage={sideImage2}
-                    products={productList2}
+                    products={productList[1].touristRoutes}
                 />
                 <ProductCollection
                     string={[
@@ -137,7 +137,7 @@ class HomePageComponent extends React.Component<PropsType /* State */> {
                         , t("home_page.from")
                     ]}
                     sideImage={sideImage3}
-                    products={productList3}
+                    products={productList[2].touristRoutes}
                 />
                 <BusinessPartners
                     title={<Typography.Title>
