@@ -20,7 +20,6 @@ const defaultState: LanguageState = {
 export default (state = defaultState, action:LanguageActionTypes) => {
     switch (action.type) {
         case CHANGE_LANGUAGE:
-            // not recommend:
             i18n.changeLanguage(action.payload);
 
             return {
@@ -39,18 +38,3 @@ export default (state = defaultState, action:LanguageActionTypes) => {
             return state;
     }
 };
-
-// export default (state = defaultState, action) => {
-//     if(action.type === "change_language") {
-//         const newState = {...state, language: action.payload };
-//         return newState;
-//     }
-//     if(action.type === "add_language") {
-//         const newState = {
-//             ...state,
-//             languageList: [...state.languageList, action.payload]
-//         };
-//         return newState;
-//     }
-//     return state;
-// };
