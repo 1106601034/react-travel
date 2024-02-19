@@ -2,19 +2,10 @@ import React from "react";
 import styles from "./Header.module.css";
 import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
-import {
-  useParams,
-  useLocation,
-  useNavigate
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
-// import { Dispatch } from "redux";
-import {
-  // LanguageActionTypes,
-  addLanguageActionCreator,
-  changeLanguageActionCreator,
-} from "../../redux/language/languageActions";
+import { addLanguageActionCreator, changeLanguageActionCreator, } from "../../redux/language/languageActions";
 import { useTranslation } from "react-i18next";
 
 interface PropsType {
@@ -23,12 +14,8 @@ interface PropsType {
 
 export const Header: React.FC<PropsType> = ({ logo }) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const params = useParams();
-  const language = useSelector((state) => state.language.language);
   const languageList = useSelector((state) => state.language.languageList);
   const dispatch = useDispatch();
-  // const dispatch = useDispatch<Dispatch<LanguageActionTypes>>();
   const { t } = useTranslation();
 
   const menuClickHandler = (e) => {
@@ -44,30 +31,32 @@ export const Header: React.FC<PropsType> = ({ logo }) => {
     <div className={styles["app-header"]}>
       <div className={styles["top-header"]}>
         <div className={styles.inner}>
-          <Space wrap>
-            <Typography.Text>
-              {t("header.slogan")}.
-            </Typography.Text>
-            <Dropdown.Button
-              style={{ marginLeft: 15 }}
-              overlay={
-                <Menu
-                  onClick={menuClickHandler}
-                  items={[
-                    ...languageList.map((l) => {
-                      return { key: l.code, label: l.name };
-                    }),
-                    { key: "new", label: t("header.add_new_language") },
-                  ]}
-                />
-              }
-              icon={<GlobalOutlined />}
-            >
-              {t("header.language")}
-            </Dropdown.Button>
+
+          <Space>
+            <div className={styles["slogan"]}>
+              <Typography.Text>
+                  {t("header.slogan")}.
+              </Typography.Text>
+            </div>
+            <Dropdown overlay={<Menu
+              onClick={menuClickHandler}
+              items={[
+                ...languageList.map((l) => {
+                  return { key: l.code, label: l.name };
+                }),
+                { key: "new", label: t("header.add_new_language") },
+              ]} />} >
+              <Button>
+                <Space>
+                  {t("header.language")}
+                  {<GlobalOutlined />}
+                </Space>
+              </Button>
+            </Dropdown>
           </Space>
+
           <Button.Group className={styles["button-group"]}>
-            <Button onClick={() => navigate("/register")}>
+            <Button onClick={() => navigate("/createAccount")}>
               {t("header.register")}
             </Button>
             <Button onClick={() => navigate("/signin")}>

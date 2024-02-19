@@ -13,7 +13,7 @@ function App() {
                     <Route path="/createAccount" element={<CreateAccountPage />} />
                     <Route path="/detail/:detailID" element={<DetailPage />} />
 
-                    <Route element={<NotFoundPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </BrowserRouter>
         </div >

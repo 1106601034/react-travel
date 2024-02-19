@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./HomePage.module.css";
 import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
 import { Row, Col, Typography, Spin, } from "antd";
-import { productList1, productList2, productList3 } from "../../assets/fakeProducts";
 import logoImage from "../../assets/logo.svg";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
@@ -15,20 +14,9 @@ import parterImage2 from "../../assets/images/icon-720944_640.png";
 import parterImage3 from "../../assets/images/follow-826033_640.png";
 import parterImage4 from "../../assets/images/facebook-807588_640.png";
 import { withTranslation, WithTranslation } from "react-i18next";
-import axios from "axios";
 import { connect } from "react-redux";
 import { RootState } from "../../redux/store";
-import {
-    fetchRecommendProductFailActionCreator,
-    fetchRecommendProductSuccessActionCreator,
-    fetchRecommendProductStartActionCreator,
-} from "../../redux/recommendProducts/recommendProductsActions";
-
-// interface State {
-//     loading: boolean
-//     error: string | null,
-//     // productList: any[]
-// }
+import { giveMeDataActionCreator } from "../../redux/recommendProducts/recommendProductsActions";
 
 const mapStateToProps = (state: RootState) => {
     return {
@@ -40,15 +28,9 @@ const mapStateToProps = (state: RootState) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchStart: () => {
-            dispatch(fetchRecommendProductStartActionCreator());
-        },
-        fetchSuccess: (data) => {
-            dispatch(fetchRecommendProductSuccessActionCreator(data));
-        },
-        fetchFail: (error) => {
-            dispatch(fetchRecommendProductFailActionCreator(error));
-        },
+        giveMeData: () => {
+            dispatch(giveMeDataActionCreator());
+        }
     }
 }
 
@@ -56,33 +38,14 @@ type PropsType = WithTranslation &
     ReturnType<typeof mapStateToProps> &
     ReturnType<typeof mapDispatchToProps>
 
-class HomePageComponent extends React.Component<PropsType /* State */> {
+class HomePageComponent extends React.Component<PropsType> {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         loading: true,
-    //         error: null,
-    //         // productList: [],
-    //     };
-    // }
-
-    async componentDidMount() {
-        this.props.fetchStart()
-        try {
-          const { data } = await axios.get(
-            "http://82.157.43.234:8080/api/productCollections"
-          );
-          this.props.fetchSuccess(data)
-        } catch (error) {
-          this.props.fetchFail(error instanceof Error ? error.message : "error")
-        }
-      }
+    componentDidMount() {
+        this.props.giveMeData();
+    }
 
     render() {
         const { t, productList, loading, error, } = this.props;
-        // const { productList, loading, error, } = this.state
-        // const { loading, error, } = this.state
         if (loading) {
             return <Spin
                 size="large"
