@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Spin, Row, Col, Divider, Typography, Anchor, Menu, } from "antd";
 import styles from "./DetailPage.module.css";
-import { Header, Footer, ProductIntro, ProductComments, } from "../../components";
+import { Header, Footer, ProductIntro, ProductComments, BusinessPartners, } from "../../components";
 import { DatePicker, } from "antd";
 import { commentMockData } from "./mockup";
 
@@ -79,7 +79,7 @@ export const DetailPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-        
+
         <div className={styles["anchor-container"]}>
           <Anchor className={styles["product-detail-anchor"]}>
             <Menu mode="horizontal">
@@ -148,6 +148,7 @@ export const DetailPage: React.FC = () => {
       </div>
 
       <div className={styles['page-footer']}>
+        <BusinessPartners />
         <Footer />
       </div>
     </>

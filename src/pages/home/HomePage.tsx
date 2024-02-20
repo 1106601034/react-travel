@@ -8,10 +8,6 @@ import carouselImage3 from "../../assets/images/carousel_3.jpg";
 import sideImage1 from "../../assets/images/sider_2019_12-09.png";
 import sideImage2 from "../../assets/images/sider_2019_02-04.png";
 import sideImage3 from "../../assets/images/sider_2019_02-04-2.png";
-import parterImage1 from "../../assets/images/microsoft-80658_640.png";
-import parterImage2 from "../../assets/images/icon-720944_640.png";
-import parterImage3 from "../../assets/images/follow-826033_640.png";
-import parterImage4 from "../../assets/images/facebook-807588_640.png";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -122,14 +118,7 @@ class HomePageComponent extends React.Component<PropsType> {
             </div>
 
             <div className={styles['page-footer']}>
-                <BusinessPartners
-                    partners={[
-                        parterImage1,
-                        parterImage2,
-                        parterImage3,
-                        parterImage4
-                    ]}
-                />
+                <BusinessPartners />
                 <Footer />
             </div>
         </>
