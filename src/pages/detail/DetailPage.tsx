@@ -7,8 +7,9 @@ import { Header, Footer, ProductIntro, ProductComments, BusinessPartners, } from
 import { DatePicker, } from "antd";
 import { commentMockData } from "./mockup";
 import { ProductDetailSlice } from "../../redux/productDetail/slice";
-import { useSelector } from "../../redux/hooks";
+import { useSelector, useAppDispatch, } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
+import { getProductDetail} from "../../redux/productDetail/slice";
 
 const { RangePicker } = DatePicker;
 
@@ -21,20 +22,12 @@ export const DetailPage: React.FC = () => {
   const loading = useSelector(state => state.productDetail.loading)
   const error = useSelector(state => state.productDetail.error)
   const product = useSelector(state => state.productDetail.data)
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
-      dispatch(ProductDetailSlice.actions.fetchStart())
-      try {
-        const { data } = await axios.get(
-          `http://82.157.43.234:8080/api/touristRoutes/${detailID}`
-        );
-        dispatch(ProductDetailSlice.actions.fetchSuccess(data))
-      } catch (error) {
-        dispatch(ProductDetailSlice.actions.fetchFail(
-          error instanceof Error ? error.message : "error"
-        ))
+      if(detailID) {
+        dispatch(getProductDetail(detailID))
       }
     };
     fetchData();
