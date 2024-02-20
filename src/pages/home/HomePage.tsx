@@ -61,54 +61,77 @@ class HomePageComponent extends React.Component<PropsType> {
             return <div>woops, something goes wrong: {error}</div>;
         }
         return <>
-            <div className={styles['page-content']}>
+            <div className={styles['page-header']}>
                 <Header />
-                <Row>
-                    <Col span={6}>
-                        <SideMenu />
-                    </Col>
-                    <Col span={18}>
-                        <Carousel image={[carouselImage1, carouselImage2, carouselImage3]} />
-                    </Col>
-                </Row>
-                <ProductCollection
-                    string={[
-                        <Typography.Title level={3} type='warning'>
-                            {t("home_page.big_deal")}
-                        </Typography.Title>
-                        , t("home_page.from")
-                    ]}
-                    sideImage={sideImage1}
-                    products={productList[0].touristRoutes}
-                />
-                <ProductCollection
-                    string={[
-                        <Typography.Title level={3} type='danger'>
-                            {t("home_page.new_arrival")}
-                        </Typography.Title>
-                        , t("home_page.from")
-                    ]}
-                    sideImage={sideImage2}
-                    products={productList[1].touristRoutes}
-                />
-                <ProductCollection
-                    string={[
-                        <Typography.Title level={3} type='success'>
-                            {t("home_page.feature")}
-                        </Typography.Title>
-                        , t("home_page.from")
-                    ]}
-                    sideImage={sideImage3}
-                    products={productList[2].touristRoutes}
-                />
-                <BusinessPartners
-                    title={<Typography.Title>
-                        {t("home_page.partners")}
-                    </Typography.Title>}
-                    partners={[parterImage1, parterImage2, parterImage3, parterImage4]}
-                />
             </div>
-            <Footer />
+
+            <div className={styles['page-content']}>
+                <div className={styles['page-side-menu-carousel']}>
+                    <Row>
+                        <Col span={6}>
+                            <SideMenu />
+                        </Col>
+                        <Col span={18}>
+                            <Carousel image={[
+                                carouselImage1,
+                                carouselImage2,
+                                carouselImage3
+                            ]} />
+                        </Col>
+                    </Row>
+                </div>
+
+                <div className={styles['product-collection-container']}>
+                    <ProductCollection
+                        string={[
+                            <Typography.Title level={3} type='warning'>
+                                {t("home_page.big_deal")}
+                            </Typography.Title>
+                            , t("home_page.from")
+                        ]}
+                        sideImage={sideImage1}
+                        products={productList[0].touristRoutes}
+                    />
+                </div>
+
+                <div className={styles['product-collection-container']}>
+                    <ProductCollection
+                        string={[
+                            <Typography.Title level={3} type='danger'>
+                                {t("home_page.new_arrival")}
+                            </Typography.Title>
+                            , t("home_page.from")
+                        ]}
+                        sideImage={sideImage2}
+                        products={productList[1].touristRoutes}
+                    />
+                </div>
+
+                <div className={styles['product-collection-container']}>
+                    <ProductCollection
+                        string={[
+                            <Typography.Title level={3} type='success'>
+                                {t("home_page.feature")}
+                            </Typography.Title>
+                            , t("home_page.from")
+                        ]}
+                        sideImage={sideImage3}
+                        products={productList[2].touristRoutes}
+                    />
+                </div>
+            </div>
+
+            <div className={styles['page-footer']}>
+                <BusinessPartners
+                    partners={[
+                        parterImage1,
+                        parterImage2,
+                        parterImage3,
+                        parterImage4
+                    ]}
+                />
+                <Footer />
+            </div>
         </>
     }
 }

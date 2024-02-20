@@ -5,14 +5,26 @@
 	min-height: 75vh;
 }
 
+.page-header {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page-footer {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
 .product-intro-container {
 	margin-top: 20px;
 	background-color: white;
+	border-radius: 10px;
 }
 
 .product-detail-anchor {
 	margin-top: 20px;
 	margin-bottom: 20px;
+	border-radius: 10px;
 }
 
 .product-detail-container {
@@ -21,4 +33,5 @@
 	padding-top: 20px;
 	margin-bottom: 30px;
 	padding-bottom: 30px;
+	border-radius: 10px;
 }

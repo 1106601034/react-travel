@@ -3,18 +3,12 @@ import styles from './BusinessPartners.module.css';
 import { Row, Col, Divider, Typography } from "antd";
 
 interface PropsType {
-    title: JSX.Element;
     partners: any[];
 }
 
-export const BusinessPartners: React.FC<PropsType> = ({ title, partners }) => {
+export const BusinessPartners: React.FC<PropsType> = ({ partners }) => {
     return (
         <div className={styles.content}>
-            <Divider orientation="left">
-                {<Typography.Title level={3}>
-                    {title}
-                </Typography.Title>}
-            </Divider>
             <Row>
                 {partners.map((url,index) => (
                     <Col span={6} key={"bussiness-partner-" + index}>

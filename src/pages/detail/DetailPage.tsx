@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Spin, Row, Col } from "antd";
+import { Spin, Row, Col, Divider, Typography, Anchor, Menu, } from "antd";
 import styles from "./DetailPage.module.css";
-import { Header, Footer, ProductIntro } from "../../components";
+import { Header, Footer, ProductIntro, ProductComments, } from "../../components";
 import { DatePicker, } from "antd";
+import { commentMockData } from "./mockup";
 
 const { RangePicker } = DatePicker;
 
@@ -54,8 +55,11 @@ export const DetailPage: React.FC = () => {
   }
   return (
     <>
-      <Header />
+      <div className={styles['page-header']}>
+        <Header />
+      </div>
       <div className={styles["page-content"]}>
+
         <div className={styles["product-intro-container"]}>
           <Row>
             <Col span={13}>
@@ -75,13 +79,77 @@ export const DetailPage: React.FC = () => {
             </Col>
           </Row>
         </div>
-        <div className={styles["product-detail-anchor"]}></div>
-        <div id="feature" className={styles["product-detail-container"]}></div>
-        <div id="fees" className={styles["product-detail-container"]}></div>
-        <div id="notes" className={styles["product-detail-container"]}></div>
-        <div id="comments" className={styles["product-detail-container"]}></div>
+        
+        <div className={styles["anchor-container"]}>
+          <Anchor className={styles["product-detail-anchor"]}>
+            <Menu mode="horizontal">
+              <Menu.Item key='1'>
+                <Anchor.Link href="#feature" title="Overview"></Anchor.Link>
+              </Menu.Item>
+              <Menu.Item key='2'>
+                <Anchor.Link href="#fees" title="Prices"></Anchor.Link>
+              </Menu.Item>
+              <Menu.Item key='3'>
+                <Anchor.Link href="#notes" title="Policy"></Anchor.Link>
+              </Menu.Item>
+              <Menu.Item key='4'>
+                <Anchor.Link href="#comments" title="Comments"></Anchor.Link>
+              </Menu.Item>
+            </Menu>
+          </Anchor>
+        </div>
+
+        <div id="feature" className={styles["product-detail-container"]}>
+          <Divider orientation={'center'}>
+            <Typography.Title level={3}>
+              Overview
+            </Typography.Title>
+          </Divider>
+          <div
+            dangerouslySetInnerHTML={{ __html: product.features }}
+            style={{ margin: 50 }}
+          ></div>
+        </div>
+
+        <div id="fees" className={styles["product-detail-container"]}>
+          <Divider orientation={'center'}>
+            <Typography.Title level={3}>
+              Prices
+            </Typography.Title>
+          </Divider>
+          <div
+            dangerouslySetInnerHTML={{ __html: product.fees }}
+            style={{ margin: 50 }}
+          ></div>
+        </div>
+
+        <div id="notes" className={styles["product-detail-container"]}>
+          <Divider orientation={"center"}>
+            <Typography.Title level={3}>
+              Policy
+            </Typography.Title>
+          </Divider>
+          <div
+            dangerouslySetInnerHTML={{ __html: product.notes }}
+            style={{ margin: 50 }}
+          ></div>
+        </div>
+
+        <div id="comments" className={styles["product-detail-container"]}>
+          <Divider orientation={"center"}>
+            <Typography.Title level={3}>
+              Comments
+            </Typography.Title>
+          </Divider>
+          <div style={{ margin: 40 }}>
+            <ProductComments data={commentMockData} />
+          </div>
+        </div>
       </div>
-      <Footer />
+
+      <div className={styles['page-footer']}>
+        <Footer />
+      </div>
     </>
   );
 };
