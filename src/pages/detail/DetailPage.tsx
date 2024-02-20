@@ -4,16 +4,16 @@ import axios from "axios";
 import { Spin, Row, Col } from "antd";
 import styles from "./DetailPage.module.css";
 import { Header, Footer, ProductIntro } from "../../components";
-import { DatePicker, Space } from "antd";
+import { DatePicker, } from "antd";
 
 const { RangePicker } = DatePicker;
 
 type MatchParams = {
-  touristRouteId: string;
+  detailID: string;
 };
 
 export const DetailPage: React.FC = () => {
-  const { touristRouteId } = useParams<MatchParams>();
+  const { detailID } = useParams<MatchParams>();
   const [loading, setLoading] = useState<boolean>(true);
   const [product, setProduct] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +23,7 @@ export const DetailPage: React.FC = () => {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `http://82.157.43.234:8080/api/touristRoutes/${touristRouteId}`
+          `http://82.157.43.234:8080/api/touristRoutes/${detailID}`
         );
         setProduct(data);
         setLoading(false);
@@ -34,6 +34,7 @@ export const DetailPage: React.FC = () => {
     };
     fetchData();
   }, []);
+
   if (loading) {
     return (
       <Spin
@@ -49,7 +50,7 @@ export const DetailPage: React.FC = () => {
     );
   }
   if (error) {
-    return <div>Woops, something just happened：{error}</div>;
+    return <div>Woops, something just happened : {error}</div>;
   }
   return (
     <>
