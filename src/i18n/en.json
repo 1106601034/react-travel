@@ -1,12 +1,15 @@
 {
+    "general": {
+        "error": "Woops, something went wrong. "
+    },
     "header": {
         "slogan": "Make your journey different",
         "add_new_language": "add new language",
         "title": "React Travel",
         "language": "English",
-        "register":"Register",
-        "signin":"Sign In",
-        "search_placeholder":"Search for fligghts, hotel and more",
+        "register": "Register",
+        "signin": "Sign In",
+        "search_placeholder": "Search for fligghts, hotel and more",
         "home_page": "Home",
         "destinations": "Destinations",
         "planing": "Planing",
@@ -14,7 +17,7 @@
         "car_hire": "Car hire"
     },
     "footer": {
-        "detail" : "This project is developing by Christopher Chan (陈彦均) and just for study reason."
+        "detail": "This project is developing by Christopher Chan (陈彦均) and just for study reason."
     },
     "home_page": {
         "big_deal": "Big Deal",
@@ -28,11 +31,17 @@
         "flights": "Flights",
         "cars": "Cars",
         "packages": "Packages",
-        "abouut_us": "About Us",
+        "about_us": "About Us",
         "products1": "Products1",
         "products2": "Products2",
         "products3": "Products3",
         "our_story": "Our story",
         "contact": "Contact us"
+    },
+    "detail": {
+        "overview": "Overview",
+        "price": "Price",
+        "policy": "Policy",
+        "comment": "Comment"
     }
 }

@@ -9,7 +9,8 @@ import { commentMockData } from "./mockup";
 import { ProductDetailSlice } from "../../redux/productDetail/slice";
 import { useSelector, useAppDispatch, } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
-import { getProductDetail} from "../../redux/productDetail/slice";
+import { getProductDetail } from "../../redux/productDetail/slice";
+import { useTranslation } from "react-i18next";
 
 const { RangePicker } = DatePicker;
 
@@ -18,6 +19,7 @@ type MatchParams = {
 };
 
 export const DetailPage: React.FC = () => {
+  const { t } = useTranslation();
   const { detailID } = useParams<MatchParams>();
   const loading = useSelector(state => state.productDetail.loading)
   const error = useSelector(state => state.productDetail.error)
@@ -26,7 +28,7 @@ export const DetailPage: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if(detailID) {
+      if (detailID) {
         dispatch(getProductDetail(detailID))
       }
     };
@@ -48,7 +50,7 @@ export const DetailPage: React.FC = () => {
     );
   }
   if (error) {
-    return <div>Woops, something just happened : {error}</div>;
+    return <div>{t("general.error")}{error}</div>;
   }
   return (
     <>
@@ -81,16 +83,16 @@ export const DetailPage: React.FC = () => {
           <Anchor className={styles["product-detail-anchor"]}>
             <Menu mode="horizontal">
               <Menu.Item key='1'>
-                <Anchor.Link href="#feature" title="Overview"></Anchor.Link>
+                <Anchor.Link href="#feature" title={t("detail.overview")}></Anchor.Link>
               </Menu.Item>
               <Menu.Item key='2'>
-                <Anchor.Link href="#fees" title="Prices"></Anchor.Link>
+                <Anchor.Link href="#fees" title={t("detail.price")}></Anchor.Link>
               </Menu.Item>
               <Menu.Item key='3'>
-                <Anchor.Link href="#notes" title="Policy"></Anchor.Link>
+                <Anchor.Link href="#notes" title={t("detail.policy")}></Anchor.Link>
               </Menu.Item>
               <Menu.Item key='4'>
-                <Anchor.Link href="#comments" title="Comments"></Anchor.Link>
+                <Anchor.Link href="#comments" title={t("detail.comment")}></Anchor.Link>
               </Menu.Item>
             </Menu>
           </Anchor>
@@ -99,7 +101,7 @@ export const DetailPage: React.FC = () => {
         <div id="feature" className={styles["product-detail-container"]}>
           <Divider orientation={'center'}>
             <Typography.Title level={3}>
-              Overview
+              {t("detail.overview")}
             </Typography.Title>
           </Divider>
           <div
@@ -111,7 +113,7 @@ export const DetailPage: React.FC = () => {
         <div id="fees" className={styles["product-detail-container"]}>
           <Divider orientation={'center'}>
             <Typography.Title level={3}>
-              Prices
+              {t("detail.price")}
             </Typography.Title>
           </Divider>
           <div
@@ -123,7 +125,7 @@ export const DetailPage: React.FC = () => {
         <div id="notes" className={styles["product-detail-container"]}>
           <Divider orientation={"center"}>
             <Typography.Title level={3}>
-              Policy
+              {t("detail.policy")}
             </Typography.Title>
           </Divider>
           <div
@@ -135,7 +137,7 @@ export const DetailPage: React.FC = () => {
         <div id="comments" className={styles["product-detail-container"]}>
           <Divider orientation={"center"}>
             <Typography.Title level={3}>
-              Comments
+              {t("detail.comment")}
             </Typography.Title>
           </Divider>
           <div style={{ margin: 40 }}>

@@ -9,7 +9,11 @@ interface PropsType {
     products: any[];
 }
 
-export const ProductCollection: React.FC<PropsType> = ({ string, sideImage, products }) => {
+export const ProductCollection: React.FC<PropsType> = ({
+    string,
+    sideImage,
+    products, 
+}) => {
     return (
         <div className={styles.content}>
             <Divider orientation="left">{string[0]}</Divider>

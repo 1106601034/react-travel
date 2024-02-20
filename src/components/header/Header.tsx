@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
           <Space>
             <div className={styles["slogan"]}>
               <Typography.Text>
-                  {t("header.slogan")}.
+                  {t("header.slogan")}
               </Typography.Text>
             </div>
             <Dropdown overlay={<Menu

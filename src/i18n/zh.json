@@ -1,4 +1,7 @@
 {
+    "general": {
+        "error": "报错了寄。"
+    },
     "header": {
         "slogan": "让旅行更幸福",
         "add_new_language": "添加新语言",
@@ -28,11 +31,17 @@
         "flights": "航班",
         "cars": "司机接送",
         "packages": "行李运输",
-        "abouut_us": "关于我们",
+        "about_us": "关于我们",
         "products1": "产品名称1",
         "products2": "产品名称2",
         "products3": "产品名称3",
         "our_story": "企业文化",
         "contact": "联系方式"
+    },
+    "detail": {
+        "overview": "产品特色",
+        "price": "费用",
+        "policy": "预订须知",
+        "comment": "商品评价"
     }
 }

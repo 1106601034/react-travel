@@ -56,7 +56,7 @@ export const sideMenuList = [
       ],
     },
     {
-      title: "side_menu.abouut_us",
+      title: "side_menu.about_us",
       subMenu: [
         {
           title: "side_menu.our_story"
