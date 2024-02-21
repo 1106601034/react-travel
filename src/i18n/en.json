@@ -40,8 +40,7 @@
     },
     "detail": {
         "overview": "Overview",
-        "price": "Price",
-        "policy": "Policy",
+        "price_and_policy": "Price and policy",
         "comment": "Comment"
     }
 }

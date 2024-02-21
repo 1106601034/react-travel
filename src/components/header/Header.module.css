@@ -21,6 +21,11 @@
   width: 195px;
 }
 
+.marquee-box {
+  margin: 0 16px 0 0;
+  float: left;
+}
+
 .button-group {
   float: right;
   margin-top: 5px;

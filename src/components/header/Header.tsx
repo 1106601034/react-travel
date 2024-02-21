@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg";
-import { Layout, Typography, Input, Menu, Button, Dropdown, Space } from "antd";
+import {
+  Alert, Layout, Typography, Input, Menu, Button,
+  Dropdown, Space, Row, Col,
+} from "antd";
+import Marquee from "react-fast-marquee";
 import { GlobalOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "../../redux/hooks";
@@ -29,37 +33,60 @@ export const Header: React.FC = () => {
       <div className={styles["top-header"]}>
         <div className={styles.inner}>
 
-          <Space>
-            <div className={styles["slogan"]}>
-              <Typography.Text>
-                  {t("header.slogan")}
-              </Typography.Text>
-            </div>
-            <Dropdown overlay={<Menu
-              onClick={menuClickHandler}
-              items={[
-                ...languageList.map((l) => {
-                  return { key: l.code, label: l.name };
-                }),
-                { key: "new", label: t("header.add_new_language") },
-              ]} />} >
-              <Button>
-                <Space>
-                  {t("header.language")}
-                  {<GlobalOutlined />}
-                </Space>
-              </Button>
-            </Dropdown>
-          </Space>
+          <Row>
+            <Col span={4}>
+              <Space>
+                <div className={styles["slogan"]}>
+                  <Typography.Text>
+                    {t("header.slogan")}
+                  </Typography.Text>
+                </div>
+                <Dropdown overlay={<Menu
+                  onClick={menuClickHandler}
+                  items={[
+                    ...languageList.map((l) => {
+                      return { key: l.code, label: l.name };
+                    }),
+                    // { key: "new", label: t("header.add_new_language") },
+                  ]} />} >
+                  <Button>
+                    <Space>
+                      {t("header.language")}
+                      {<GlobalOutlined />}
+                    </Space>
+                  </Button>
+                </Dropdown>
+              </Space>
+            </Col>
 
-          <Button.Group className={styles["button-group"]}>
-            <Button onClick={() => navigate("/createAccount")}>
-              {t("header.register")}
-            </Button>
-            <Button onClick={() => navigate("/signin")}>
-              {t("header.signin")}
-            </Button>
-          </Button.Group>
+            <Col span={13} offset={2}>
+              <Alert 
+                banner
+                style={{ borderRadius: 10, margin: 3, padding: 6 }}
+                message={
+                  <Marquee pauseOnHover gradient={true} delay={5}
+                    autoFill={true} gradientWidth={20} >
+                    This project fetchs product information data from database that belongs to imooc.com, and currently these data don't support i18n multi-language.
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </Marquee>
+                }
+              />
+            </Col>
+
+            <Col span={4} offset={1}>
+              <Button.Group className={styles["button-group"]}>
+                <Button onClick={() => navigate("/createAccount")}>
+                  {t("header.register")}
+                </Button>
+                <Button onClick={() => navigate("/signin")}>
+                  {t("header.signin")}
+                </Button>
+              </Button.Group>
+            </Col>
+          </Row>
+
         </div>
       </div>
       <Layout.Header className={styles["main-header"]}>

@@ -27,7 +27,7 @@ export const ProductImage: React.FC<PropsType> = ({
                 {productImageString[0].slice(0, 25)}
             </Typography.Text>
             <Typography.Text type="danger" strong>
-                {productImageString[1]}${price}
+                {productImageString[1]}¥{price}
             </Typography.Text>
         </div>
     </Link>

@@ -40,8 +40,7 @@
     },
     "detail": {
         "overview": "产品特色",
-        "price": "费用",
-        "policy": "预订须知",
+        "price_and_policy": "服务条款",
         "comment": "商品评价"
     }
 }
