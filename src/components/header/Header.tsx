@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
         <div className={styles.inner}>
 
           <Row>
-            <Col span={4}>
+            <Col span={6}>
               <Space>
                 <div className={styles["slogan"]}>
                   <Typography.Text>
@@ -59,14 +59,14 @@ export const Header: React.FC = () => {
               </Space>
             </Col>
 
-            <Col span={13} offset={2}>
+            <Col span={14}>
               <Alert 
                 banner
                 style={{ borderRadius: 10, margin: 3, padding: 6 }}
                 message={
                   <Marquee pauseOnHover gradient={true} delay={5}
                     autoFill={true} gradientWidth={20} >
-                    This project fetchs product information data from database that belongs to imooc.com, and currently these data don't support i18n multi-language.
+                    The product information data used in this project is owned by imooc.com, and currently does not support i18n multi-language.
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
               />
             </Col>
 
-            <Col span={4} offset={1}>
+            <Col span={4}>
               <Button.Group className={styles["button-group"]}>
                 <Button onClick={() => navigate("/createAccount")}>
                   {t("header.register")}
@@ -99,6 +99,7 @@ export const Header: React.FC = () => {
         <Input.Search
           placeholder={t("header.search_placeholder")}
           className={styles["search-input"]}
+          onSearch={(keyword) => navigate("/search/" + keyword)}
         />
       </Layout.Header>
       <Menu

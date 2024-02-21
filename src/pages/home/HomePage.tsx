@@ -57,10 +57,7 @@ class HomePageComponent extends React.Component<PropsType> {
             return <div>woops, something goes wrong: {error}</div>;
         }
         return <>
-            <div className={styles['page-header']}>
-                <Header />
-            </div>
-
+            <Header />
             <div className={styles['page-content']}>
                 <div className={styles['page-side-menu-carousel']}>
                     <Row>
@@ -116,11 +113,8 @@ class HomePageComponent extends React.Component<PropsType> {
                     />
                 </div>
             </div>
-
-            <div className={styles['page-footer']}>
-                <BusinessPartners />
-                <Footer />
-            </div>
+            <BusinessPartners />
+            <Footer />
         </>
     }
 }

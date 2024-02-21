@@ -4,12 +4,14 @@ import recommendProductsReducer from "./recommendProducts/recommendProductsReduc
 import thunk from "redux-thunk";
 import { actionLog } from "./middlewares/actionLogg";
 import { ProductDetailSlice } from "./productDetail/slice";
-import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { combineReducers, configureStore, } from "@reduxjs/toolkit";
+import { productSearchSlice } from "./productSearch/slice";
 
 const rootReducer = combineReducers({
     language: languageReducer,
     recommendProducts: recommendProductsReducer,
     productDetail: ProductDetailSlice.reducer,
+    productSearch: productSearchSlice.reducer,
 })
 
 const store = configureStore({
