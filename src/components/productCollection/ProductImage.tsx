@@ -13,22 +13,23 @@ interface PropsType {
 export const ProductImage: React.FC<PropsType> = ({
     id, size, imageSrc, price, productImageString
 }) => {
-
-    return <Link to={`detail/${id}`} >
-        {
-            size === "large" ? (
-                <Image src={imageSrc} height={285} width={490} />
-            ) : (
-                <Image src={imageSrc} height={120} width={240} />
-            )
-        }
-        <div>
-            <Typography.Text type="secondary">
-                {productImageString[0].slice(0, 25)}
-            </Typography.Text>
-            <Typography.Text type="danger" strong>
-                {productImageString[1]}¥{price}
-            </Typography.Text>
-        </div>
-    </Link>
+    return (
+        <Link to={`detail/${id}`} >
+            {
+                size === "large" ? (
+                    <Image src={imageSrc} height={285} width={490} />
+                ) : (
+                    <Image src={imageSrc} height={120} width={240} />
+                )
+            }
+            <div>
+                <Typography.Text type="secondary">
+                    {productImageString[0].slice(0, 25)}
+                </Typography.Text>
+                <Typography.Text type="danger" strong>
+                    {productImageString[1]}¥{price}
+                </Typography.Text>
+            </div>
+        </Link>
+    )
 }

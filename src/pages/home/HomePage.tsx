@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./HomePage.module.css";
-import { Header, Footer, Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
+import { Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
 import { Row, Col, Typography, Spin, } from "antd";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
@@ -12,6 +12,7 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { RootState } from "../../redux/store";
 import { giveMeDataActionCreator } from "../../redux/recommendProducts/recommendProductsActions";
+import { MainLayout } from "../../layouts/mainLayout";
 
 const mapStateToProps = (state: RootState) => {
     return {
@@ -56,9 +57,8 @@ class HomePageComponent extends React.Component<PropsType> {
         if (error) {
             return <div>woops, something goes wrong: {error}</div>;
         }
-        return <>
-            <Header />
-            <div className={styles['page-content']}>
+        return (
+            <MainLayout>
                 <div className={styles['page-side-menu-carousel']}>
                     <Row>
                         <Col span={6}>
@@ -112,10 +112,9 @@ class HomePageComponent extends React.Component<PropsType> {
                         products={productList[2].touristRoutes}
                     />
                 </div>
-            </div>
-            <BusinessPartners />
-            <Footer />
-        </>
+                <BusinessPartners />
+            </MainLayout>
+        );
     }
 }
 

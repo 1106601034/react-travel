@@ -102,14 +102,15 @@ export const Header: React.FC = () => {
           onSearch={(keyword) => navigate("/search/" + keyword)}
         />
       </Layout.Header>
+      
       <Menu
         mode={"horizontal"}
         className={styles["main-menu"]}
         items={[
-          { key: 1, label: t("header.destinations") },
-          { key: 2, label: t("header.planing") },
-          { key: 3, label: t("header.hotels") },
-          { key: 4, label: t("header.car_hire") },
+          { key: 1, label: t("header.destinations"), disabled: true, },
+          { key: 2, label: t("header.planing"), disabled: true, },
+          { key: 3, label: t("header.hotels"), disabled: true, },
+          { key: 4, label: t("header.car_hire"), disabled: true, },
         ]}
       />
     </div>

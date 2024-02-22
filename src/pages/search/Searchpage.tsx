@@ -6,6 +6,7 @@ import { Spin } from "antd";
 import { searchProduct } from "../../redux/productSearch/slice";
 import { useSelector, useAppDispatch } from "../../redux/hooks";
 import { useTranslation } from "react-i18next";
+import { MainLayout } from "../../layouts/mainLayout";
 
 type MatchParams = {
   keywords: string;
@@ -54,23 +55,17 @@ export const SearchPage: React.FC = () => {
     return <div>{t("general.error")}{error}</div>;
   }
 
-  return (
-    <>
-      <Header />
-      <div className={styles["page-content"]}>
-        <div className={styles["product-list-container"]}>
-          <FilterArea />
-        </div>
-        <div className={styles["product-list-container"]}>
-          <ProductList
-            data={productList}
-            paging={pagination}
-            onPageChange={onPageChange}
-          />
-        </div>
-      </div>
-      <BusinessPartners />
-      <Footer />
-    </>
+  return (<MainLayout>
+    <div className={styles["product-list-container"]}>
+      <FilterArea />
+    </div>
+    <div className={styles["product-list-container"]}>
+      <ProductList
+        data={productList}
+        paging={pagination}
+        onPageChange={onPageChange}
+      />
+    </div>
+  </MainLayout>
   );
 };

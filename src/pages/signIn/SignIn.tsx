@@ -1,8 +1,9 @@
 import React from "react";
-// import styles from "./SignIn.module.css";
+import { UserLayout } from "../../layouts/userLayout";
+import { SignInForm } from "./SignInForm";
 
 export const SignInPage : React.FC = () =>  {
-        return <>
-            <h1>Sign In</h1>
-        </>
+        return <UserLayout>
+            <SignInForm />
+        </UserLayout>
 }

@@ -1,8 +1,9 @@
 import React from "react";
-// import styles from "./CreateAccount.module.css";
+import { UserLayout } from "../../layouts/userLayout";
+import { RegisterForm } from "./RegisterForm";
 
 export const CreateAccountPage : React.FC = () => {
-        return <>
-            <h1>Create a new Acount</h1>
-        </>
+        return <UserLayout>
+            <RegisterForm />
+        </UserLayout>
 }
