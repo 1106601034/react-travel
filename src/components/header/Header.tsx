@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, } from "react";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 import {
@@ -12,12 +12,28 @@ import { useSelector } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
 import { addLanguageActionCreator, changeLanguageActionCreator, } from "../../redux/language/languageActions";
 import { useTranslation } from "react-i18next";
+import jwt_decode, { JwtPayload as DefaultJwtPayload } from "jwt-decode";
+import { userSlice } from "../../redux/user/slice";
+
+interface JwtPayload extends DefaultJwtPayload {
+  username: string,
+}
 
 export const Header: React.FC = () => {
   const navigate = useNavigate();
   const languageList = useSelector((state) => state.language.languageList);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  const jwt = useSelector((s) => s.user.token);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    if (jwt) {
+      const token = jwt_decode<JwtPayload>(jwt);
+      setUsername(token.username);
+    }
+  }, [jwt]);
 
   const menuClickHandler = (e) => {
     console.log(e);
@@ -27,6 +43,11 @@ export const Header: React.FC = () => {
       dispatch(changeLanguageActionCreator(e.key));
     }
   };
+
+  const onLogout = () => {
+    dispatch(userSlice.actions.logOut())
+    navigate("/")
+  }
 
   return (
     <div className={styles["app-header"]}>
@@ -60,7 +81,7 @@ export const Header: React.FC = () => {
             </Col>
 
             <Col span={14}>
-              <Alert 
+              <Alert
                 banner
                 style={{ borderRadius: 10, margin: 3, padding: 6 }}
                 message={
@@ -76,14 +97,25 @@ export const Header: React.FC = () => {
             </Col>
 
             <Col span={4}>
-              <Button.Group className={styles["button-group"]}>
-                <Button onClick={() => navigate("/createAccount")}>
-                  {t("header.register")}
-                </Button>
-                <Button onClick={() => navigate("/signin")}>
-                  {t("header.signin")}
-                </Button>
-              </Button.Group>
+              {jwt ? (
+                <Button.Group className={styles["button-group"]}>
+                  <span>
+                    {t("header.welcome")}
+                    <Typography.Text strong>{username}</Typography.Text>
+                  </span>
+                  <Button>{t("header.shoppingCart")}</Button>
+                  <Button onClick={onLogout}>{t("header.signOut")}</Button>
+                </Button.Group>
+              ) : (
+                <Button.Group className={styles["button-group"]}>
+                  <Button onClick={() => navigate("/createAccount")}>
+                    {t("header.register")}
+                  </Button>
+                  <Button onClick={() => navigate("/signin")}>
+                    {t("header.signin")}
+                  </Button>
+                </Button.Group>
+              )}
             </Col>
           </Row>
 
@@ -102,7 +134,7 @@ export const Header: React.FC = () => {
           onSearch={(keyword) => navigate("/search/" + keyword)}
         />
       </Layout.Header>
-      
+
       <Menu
         mode={"horizontal"}
         className={styles["main-menu"]}
@@ -113,6 +145,6 @@ export const Header: React.FC = () => {
           { key: 4, label: t("header.car_hire"), disabled: true, },
         ]}
       />
-    </div>
+    </div >
   );
 };

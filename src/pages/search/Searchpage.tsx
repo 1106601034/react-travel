@@ -25,9 +25,9 @@ export const SearchPage: React.FC = () => {
 
   useEffect(() => {
     if (keywords) {
-      dispatch(searchProduct({ nextPage: 1, pageSize: 10, keywords }))
+      dispatch(searchProduct({ nextPage: 1, pageSize: 20, keywords }))
     } else {
-      dispatch(searchProduct({ nextPage: 1, pageSize: 10, keywords: '' }))
+      dispatch(searchProduct({ nextPage: 1, pageSize: 20, keywords: '' }))
     }
   }, [location])
 

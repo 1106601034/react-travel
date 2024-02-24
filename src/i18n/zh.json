@@ -14,7 +14,10 @@
         "destinations": "目的地",
         "planing": "计划出行",
         "hotels": "酒店",
-        "car_hire": "接送"
+        "car_hire": "接送",
+        "shoppingCart": "购物车",
+        "signOut": "注销",
+        "welcome": "欢迎回来 "
     },
     "footer": {
         "detail" : "本项目由Christopher Chan (陈彦均)开发，仅供学习使用。"

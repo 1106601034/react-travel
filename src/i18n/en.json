@@ -14,7 +14,10 @@
         "destinations": "Destinations",
         "planing": "Planing",
         "hotels": "Hotels",
-        "car_hire": "Car hire"
+        "car_hire": "Car hire",
+        "shoppingCart": "Cart",
+        "signOut": "Sign out",
+        "welcome": "Welcome "
     },
     "footer": {
         "detail": "This project is developing by Christopher Chan (陈彦均) and just for study reason."

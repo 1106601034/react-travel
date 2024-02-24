@@ -19,9 +19,9 @@ export const searchProduct = createAsyncThunk(
     "productSearch/searchProduct",
     async (
         paramaters: {
-            keywords: string;
             nextPage: number | string;
             pageSize: number | string;
+            keywords: string;
         },
         thunkAPI
     ) => {
