@@ -4,3 +4,4 @@ export * from './signIn'
 export * from './detail'
 export * from './notFound'
 export * from './search'
+export * from "./shoppingCart"
