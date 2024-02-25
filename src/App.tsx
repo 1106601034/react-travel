@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, } from "react-router-dom";
 import {
     HomePage, SignInPage, CreateAccountPage,
     DetailPage, NotFoundPage, SearchPage,
-    ShoppingCartPage,
+    ShoppingCartPage, PlaceOrderPage,
 } from "./pages";
 import { Navigate } from "react-router-dom";
 import { useSelector, useAppDispatch, } from "./redux/hooks";
@@ -41,6 +41,13 @@ function App() {
                             <ShoppingCartPage />
                         </PrivateRoute>
                     }
+                    />
+                    <Route
+                        path="/placeOrder" element={
+                            <PrivateRoute>
+                                <PlaceOrderPage />
+                            </PrivateRoute>
+                        }
                     />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
