@@ -5,7 +5,7 @@ RUN npm install
 COPY tsconfig.json ./
 COPY public public/
 COPY src src/
-# RUN npm run build
+RUN npm run build
 
 FROM nginx:alpine
 COPY --from=build /app/build/ /usr/share/nginx/html
