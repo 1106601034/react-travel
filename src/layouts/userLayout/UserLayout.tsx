@@ -24,9 +24,8 @@ export const UserLayout: React.FC<PropsTypes> = (props) => {
           <div className={styles["top"]}>
             <div className={styles["desc"]}>
               <p>
-                The sever currently reject any register and accept login only.<br />
-                Please log in with account as "alex1234@163.com", <br />
-                and password as "Fake123$".
+                The server currently rejects register and accepts login only. <br />
+                Please log in with account "alex1234@163.com", and password "Fake123$".<br />
               </p>
             </div>
             {props.children}
