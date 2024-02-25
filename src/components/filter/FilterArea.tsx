@@ -2,22 +2,35 @@ import React from "react";
 import { Divider } from "antd";
 import { Filter } from "./Filter";
 import styles from "./FilterArea.module.css";
+import { useTranslation } from "react-i18next";
 
 export const FilterArea: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <Filter title="路线评价" tags={["1星", "2星", "3星", "4星", "5星"]} />
+      <Filter title = {t("filter.review")} tags = {[
+        t("filter.notRecommend"), 
+        t("filter.notBad"), 
+        t("filter.good"), 
+        t("filter.great"), 
+        t("filter.loveIt"),
+        ]} />
       <Divider dashed className={styles["filter-divider"]} />
-      <Filter title="出发城市" tags={["北京", "上海", "广州", "深圳"]} />
+      <Filter title = {t("filter.departure")} tags = {[
+        t("filter.beijing"),
+        t("filter.shanghai"),
+        t("filter.guangzhou"),
+        t("filter.shenzhen"),
+        ]} />
       <Divider dashed className={styles["filter-divider"]} />
-      <Filter title="行程天数" tags={["2日", "3日", "4日", "5日", "6日"]} />
+      <Filter title = {t("filter.duration")} tags = {[
+        t("filter.twoDays"), 
+        t("filter.threeDays"),
+        t("filter.fourDays"),
+        t("filter.fiveDays"),
+        t("filter.sixDays"),
+        ]} />
       <Divider dashed />
-      <Filter
-        title="旅程类型"
-        tags={["跟团游", "自由行", "自驾游", "高端定制"]}
-      />
-      <Divider dashed />
-      <Filter title="出发时间" tags={["春节", "清明", "劳动节"]} />
     </>
   );
 };

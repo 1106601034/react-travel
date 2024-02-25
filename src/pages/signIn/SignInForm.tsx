@@ -54,15 +54,15 @@ export const SignInForm = () => {
         name="username"
         rules={[{ required: true, message: "Please input your username!" }]}
       >
-        <Input />
+        <Input placeholder="alex1234@163.com" />
       </Form.Item>
-
+      
       <Form.Item
         label="Password"
         name="password"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
-        <Input.Password />
+        <Input.Password placeholder="Fake123$" />
       </Form.Item>
 
       <Form.Item {...tailLayout} name="remember" valuePropName="checked">

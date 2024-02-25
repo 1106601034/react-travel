@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { List, Rate, Space, Image, Tag, Typography } from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
@@ -31,9 +32,9 @@ const listData = (productList: Product[]) =>
     description: p.description,
     tags: (
       <>
-        {p.departureCity && <Tag color="#f50">{p.departureCity}出发</Tag>}
-        {p.travelDays && <Tag color="#108ee9">{p.travelDays} 天 </Tag>}
-        {p.discountPresent && <Tag color="#87d068">超低折扣</Tag>}
+        {p.departureCity && <Tag color="#f50">{p.departureCity}{" "}departure</Tag>}
+        {p.travelDays && <Tag color="#108ee9">{p.travelDays} {" "}days </Tag>}
+        {p.discountPresent && <Tag color="#87d068">discount</Tag>}
         {p.tripType && <Tag color="#2db7f5">{p.tripType}</Tag>}
       </>
     ),
@@ -52,9 +53,10 @@ const IconText = ({ icon, text }) => (
 );
 
 export const ProductList: React.FC<PropsType> = (
-  { data, paging,onPageChange, }
+  { data, paging, onPageChange, }
 ) => {
 
+  const { t } = useTranslation();
   const products = listData(data);
 
   return (
@@ -73,7 +75,11 @@ export const ProductList: React.FC<PropsType> = (
       footer={
         paging && (
           <div>
-            搜索总路线: <Text strong>{paging.totalCount}</Text> 条
+            {t("productList.showing")}
+            <Text strong>
+              {" "}{paging.totalCount}{" "}
+            </Text>
+            {t("productList.results")}
           </div>
         )
       }
@@ -108,19 +114,19 @@ export const ProductList: React.FC<PropsType> = (
                 {item.discountPresent ? (
                   <>
                     <Text style={{ fontSize: 20, fontWeight: 400 }} delete>
-                      ¥ {item.originalPrice}
+                      {t("general.currency")} {item.originalPrice}
                     </Text>
                     <Text
                       type="danger"
                       style={{ fontSize: 20, fontWeight: 400 }}
                     >
                       {" "}
-                      ¥ {item.price}
+                      {t("general.currency")} {item.price}
                     </Text>
                   </>
                 ) : (
                   <Text style={{ fontSize: 20, fontWeight: 400 }}>
-                    ¥ {item.price}
+                    {t("general.currency")} {item.price}
                   </Text>
                 )}
                 <Link to={"/detail/" + item.id}> {item.title}</Link>

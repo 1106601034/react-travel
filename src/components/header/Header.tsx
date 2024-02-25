@@ -102,10 +102,10 @@ export const Header: React.FC = () => {
             <Col span={4}>
               {jwt ? (
                 <Button.Group className={styles["button-group"]}>
-                  <span>
+                  {/* <span>
                     {t("header.welcome")}
                     <Typography.Text strong>{username}</Typography.Text>
-                  </span>
+                  </span> */}
                   <Button
                     loading={shoppingCartLoading}
                     onClick={() => navigate("/shoppingCart")}
@@ -133,7 +133,7 @@ export const Header: React.FC = () => {
         <span onClick={() => navigate("/")}>
           <img src={logo} alt="logo" className={styles["App-logo"]} />
           <Typography.Title level={3} className={styles.title}>
-            {t("header.title")}
+            {t("general.title")}
           </Typography.Title>
         </span>
         <Input.Search

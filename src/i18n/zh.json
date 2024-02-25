@@ -1,11 +1,13 @@
 {
     "general": {
-        "error": "报错了寄。"
+        "title": "React 旅游网",
+        "error": "报错了寄。",
+        "currency": "¥",
+        "star": "星"
     },
     "header": {
         "slogan": "让旅行更幸福",
         "add_new_language": "添加新语言",
-        "title": "React 旅游网",
         "language": "简体中文",
         "register":"注册",
         "signin":"登陆",
@@ -44,6 +46,60 @@
     "detail": {
         "overview": "产品特色",
         "price_and_policy": "服务条款",
-        "comment": "商品评价"
+        "comment": "商品评价",
+        "addToCart": "放入购物车"
+    },
+    "filter": {
+        "review": "路线评价",
+        "notRecommend": "1星",
+        "notBad": "2星",
+        "good": "3星",
+        "great": "4星",
+        "loveIt": "5星",
+        "departure": "出发城市",
+        "beijing": "北京",
+        "shanghai": "上海",
+        "guangzhou": "广州",
+        "shenzhen": "深圳",
+        "Duration": "行程天数",
+        "twoDays": "2日",
+        "threeDays": "3日",
+        "fourDays": "4日",
+        "fiveDays": "5日",
+        "sixDays": "6日"
+    },
+    "checkOutCard": {
+        "product": "产品",
+        "price": "价格",
+        "homePage": "回到首页",
+        "payment": "支付",
+        "succsee": "支付成功",
+        "summary": "总计"
+    },
+    "paymentCard": {
+        "payNow": "下单支付",
+        "clear": "清空",
+        "total": "总计"
+    },
+    "paymentForm": {
+        "credit": "信用卡"
+    },
+    "productIntro": {
+        "product": "路线名称",
+        "price": "价格",
+        "discount": "限时抢购折扣",
+        "noDiscount": "暂无折扣",
+        "coupons": "领取优惠",
+        "noCoupons": "无优惠券可领",
+        "review": "线路评价",
+        "star": "星",
+        "forEach": "/人起"
+    },
+    "productList": {
+        "departure": "出发",
+        "days": "天",
+        "discount": "超低折扣",
+        "showing": "搜索总路线",
+        "results": "条"
     }
 }

@@ -2,8 +2,10 @@ import React from "react";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 import { Input, Card } from "antd";
 import styles from "./PaymentForm.module.css";
+import { useTranslation } from "react-i18next";
 
 export const PaymentForm = () => {
+  const { t } = useTranslation();
   const {
     wrapperProps,
     getCardImageProps,
@@ -14,7 +16,7 @@ export const PaymentForm = () => {
 
   return (
     <Card
-      title="信用卡"
+      title = {t("paymentForm.credit")}
       bordered={false}
       className={styles["payment-credit-card"]}
     >

@@ -1,11 +1,13 @@
 {
     "general": {
-        "error": "Woops, something went wrong. "
+        "title": "React Travel",
+        "error": "Woops, something went wrong. ",
+        "currency": "¥",
+        "star": "星"
     },
     "header": {
         "slogan": "Make your journey different",
         "add_new_language": "add new language",
-        "title": "React Travel",
         "language": "English",
         "register": "Register",
         "signin": "Sign In",
@@ -44,6 +46,60 @@
     "detail": {
         "overview": "Overview",
         "price_and_policy": "Price and policy",
-        "comment": "Comment"
+        "comment": "Comment",
+        "addToCart": "Add Tto cart"
+    },
+    "filter": {
+        "review": "Review",
+        "notRecommend": "1 stars",
+        "notBad": "2 stars",
+        "good": "3 stars",
+        "great": "4 stars",
+        "loveIt": "5 stars",
+        "departure": "Departure",
+        "beijing": "Beijing",
+        "shanghai": "Shanghai",
+        "guangzhou": "Guangzhou",
+        "shenzhen": "Shenzhen",
+        "duration": "Duration",
+        "twoDays": "2 Days",
+        "threeDays": "3 Days",
+        "fourDays": "4 Days",
+        "fiveDays": "5 Days",
+        "sixDays": "6 Days"
+    },
+    "checkOutCard": {
+        "product": "Product",
+        "price": "Price",
+        "homePage": "HomePage",
+        "payment": "Pay Now",
+        "succsee": "Succsee",
+        "summary": "Summary"
+    },
+    "paymentCard": {
+        "payNow": "Pay Now",
+        "clear": "Clear",
+        "total": "Total"
+    },
+    "paymentForm": {
+        "credit": "Credit"
+    },
+    "productIntro": {
+        "product": "Product",
+        "price": "Price",
+        "discount": "Discount",
+        "noDiscount": "Discount unavaliable",
+        "coupons": "Coupons",
+        "noCoupons": "Coupons unavaliable",
+        "review": "Review",
+        "star": "star",
+        "forEach": "for each"
+    },
+    "productList": {
+        "departure": "出发",
+        "days": "天",
+        "discount": "超低折扣",
+        "showing": "Showing",
+        "results": "results"
     }
 }
