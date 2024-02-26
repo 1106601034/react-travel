@@ -21,7 +21,7 @@ export const RegisterForm = () => {
         password: values.password,
         confirmPassword: values.confirm,
       });
-      navigate("signIn/");
+      navigate("/signIn");
     } catch (error) {
       alert("We are unable to create your account :(")
     }
