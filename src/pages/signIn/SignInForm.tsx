@@ -22,8 +22,8 @@ export const SignInForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  useEffect(()=>{ 
-    if(jwt !== null) {
+  useEffect(() => {
+    if (jwt !== null) {
       navigate("/");
     }
   }, [jwt])
@@ -49,22 +49,22 @@ export const SignInForm = () => {
       onFinishFailed={onFinishFailed}
       className={styles["register-form"]}
     >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: "Please input your username!" }]}
-      >
-        <Input placeholder="alex1234@163.com" />
-      </Form.Item>
-      
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
-      >
-        <Input.Password placeholder="Fake123$" />
-      </Form.Item>
+      <div className={styles["input"]}>
+        <Form.Item
+          name="username"
+          rules={[{ required: true, message: "Please input your username!" }]}
+        >
+          <Input placeholder="Username" />
+        </Form.Item>
 
+        <Form.Item
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password placeholder="Password" />
+        </Form.Item>
+      </div>
+      
       <Form.Item {...tailLayout} name="remember" valuePropName="checked">
         <Checkbox>Remember me</Checkbox>
       </Form.Item>

@@ -1,5 +1,5 @@
 .user-layout-container {
-    height: 700px;
+    height: 100vh;
     background-image: url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg") !important;
     background-size: 100% !important;  
     background-repeat: no-repeat;
@@ -20,28 +20,31 @@
 }
 
 .content .top {
-    text-align: center;
+    height: fit-content;
+    width: 600px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 5% !important;
+	background: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .content .top .content-header {
     height: 44px;
     line-height: 44px;
-}
-
-.content .top .content-header a {
-    text-decoration: none;
+    text-align: center;
 }
 
 .content .top .content-header .logo {
-    height: 44px;
-    margin-right: 16px;
-    vertical-align: top;
+    height: 60px;
+    width: 60px;
     float: none;
 }
 
 .content .top .content-header .title {
     position: relative;
-    top: 30%;
+    top: 20%;
     color: #1890ff;
     font-weight: 600;
     font-size: 33px;
@@ -53,3 +56,4 @@
     margin-bottom: 40px;
     color: #b01616;
 }
+

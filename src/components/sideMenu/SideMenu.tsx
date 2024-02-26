@@ -20,7 +20,7 @@ export const SideMenu: React.FC = () => {
                         children: m.subMenu.map((sm) => ({
                             label: t(sm.title),
                             key: sm.title,
-                            disabled: true,
+                            // disabled: true,
                             icon: <CarOutlined />,
                         }
                         )),

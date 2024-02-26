@@ -1,5 +1,7 @@
 .register-form {
-	width: 450px; 
-	margin-right: auto !important;
-	margin-left: auto !important;
+    text-align: left;
+}
+
+.input {
+    margin-left: 25%;
 }

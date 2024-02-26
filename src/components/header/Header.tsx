@@ -147,10 +147,10 @@ export const Header: React.FC = () => {
         mode={"horizontal"}
         className={styles["main-menu"]}
         items={[
-          { key: 1, label: t("header.destinations"), disabled: true, },
-          { key: 2, label: t("header.planing"), disabled: true, },
-          { key: 3, label: t("header.hotels"), disabled: true, },
-          { key: 4, label: t("header.car_hire"), disabled: true, },
+          { key: 1, label: t("header.destinations"), /* disabled: true, */ },
+          { key: 2, label: t("header.planing"), },
+          { key: 3, label: t("header.hotels"), },
+          { key: 4, label: t("header.car_hire"), },
         ]}
       />
     </div >
