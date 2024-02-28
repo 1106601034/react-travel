@@ -21,12 +21,13 @@ export const UserLayout: React.FC<PropsTypes> = (props) => {
   return (
     <>
       <Layout className={styles["user-layout-container"]}>
+        <div className={styles["background"]} />
         <Content className={styles["content"]}>
           <div className={styles["top"]}>
             <div className={styles["content-header"]}>
               <span onClick={() => navigate("/")}>
                 <img alt="logo" className={styles["logo"]} src={logo} />
-                <span className={styles["title"]}>React Travel</span>
+                <span className={styles["title"]}>{t("general.title")}</span>
               </span>
             </div>
             <div className={styles["desc"]}>

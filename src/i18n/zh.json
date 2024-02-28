@@ -101,5 +101,27 @@
         "discount": "超低折扣",
         "showing": "搜索总路线",
         "results": "条"
+    },
+    "form": {
+        "registerSuccess": "创建成功，请用新账号登录。",
+        "registerFail": "账号创建失败。错误信息：",
+        "loginSuccess": "好久不见！",
+        "loginFail": "账号登录失败。错误信息：",
+        "tpyeUsername": "请输入用户名。",
+        "username": "用户名",
+        "tpyePassword": "请输入密码。",
+        "password": "密码",
+        "confirmPassword": "请再次输入密码。",
+        "confirmFail": "请确认密码一致。",
+        "confirm": "确认密码",
+        "upperRequired": "包含大写字母",
+        "lowerRequired": "包含小写字母",
+        "numberRequired": "包含数字",
+        "specialRequired": "包含特殊符号",
+        "notStartRequired": "特殊符号不能作为开头",
+        "sixRequired": "密码长度不小于六位",
+        "rigister": "注册",
+        "stayLogin": "保持登录",
+        "login": "登录"
     }
 }

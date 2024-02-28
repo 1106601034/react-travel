@@ -43,16 +43,9 @@ class HomePageComponent extends React.Component<PropsType> {
     render() {
         const { t, productList, loading, error, } = this.props;
         if (loading) {
-            return <Spin
-                size="large"
-                style={{
-                    marginTop: 200,
-                    marginBottom: 200,
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    width: "100%",
-                }}
-            />
+            return <div className={styles["spin"]} >
+                <Spin size="large" />
+            </div>
         }
         if (error) {
             return <div>woops, something goes wrong: {error}</div>;

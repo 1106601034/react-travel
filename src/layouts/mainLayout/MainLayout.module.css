@@ -1,6 +1,19 @@
 .page-content {
-    width: 1230px;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 75vh;
-  }
+  width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 75vh;
+  z-index: 1;
+}
+
+.background {
+  background-image: url("https://i2.wp.com/www.wallpapertip.com/wmimgs/152-1527623_free-beach-wallpapers-without-copyright-bermuda-background.jpg") !important;
+  position: absolute;
+  background-size: cover 110%;
+  filter: blur(5px);
+  z-index: index -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

@@ -3,6 +3,7 @@ import { Form, Input, Button, Checkbox, message, Space, } from "antd";
 import styles from "./RegisterForm.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const layout = {
   labelCol: { span: 8 },
@@ -13,6 +14,7 @@ const tailLayout = {
 };
 
 export const RegisterForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [passwordStrength, setPasswordStrength] = useState({
     hasUpper: false,
@@ -31,10 +33,10 @@ export const RegisterForm = () => {
         password: values.password,
         confirmPassword: values.confirm,
       });
-      message.success('Your account has been created.');
+      message.success(t("form.registerSuccess"));
       navigate("/signIn");
     } catch (error) {
-      alert(`We are unable to create your account :( \n${error}`)
+      alert(`${t("form.registerFail")}\n${error}`)
     }
   };
 
@@ -73,54 +75,50 @@ export const RegisterForm = () => {
         <div className={styles["input"]}>
           <Form.Item
             name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[{ required: true, message: t("form.tpyeUsername") }]}
           >
-            <Input placeholder="Username" />
+            <Input placeholder={t("form.username")} />
           </Form.Item>
 
           <Form.Item
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[{ required: true, message: t("form.tpyePassword") }]}
           >
-            <Input.Password onChange={handlePasswordChange} placeholder="Password" />
+            <Input.Password onChange={handlePasswordChange} placeholder={t("form.password")} />
           </Form.Item>
 
           <Form.Item
             name="confirm"
             hasFeedback
             rules={[
-              { required: true, message: "Please input your confirm password!" },
+              { required: true, message: t("form.confirmPassword") },
               ({ getFieldValue }) => ({
                 validator(_, value) {
                   if (!value || getFieldValue("password") === value) {
                     return Promise.resolve();
                   }
-                  return Promise.reject("Passwords can't match.");
+                  return Promise.reject(t("form.confirmFail"));
                 },
               }),
             ]}
           >
-            <Input.Password placeholder="Confirm Password" />
+            <Input.Password placeholder={t("form.confirm")} />
           </Form.Item>
         </div>
         <Form.Item {...tailLayout}>
           <Space direction="vertical"  >
-            <Checkbox checked={hasUpper}>At least one Upper letter</Checkbox>
-            <Checkbox checked={hasLower}>At least one Lower letter</Checkbox>
-            <Checkbox checked={hasNumber}>At least one number</Checkbox>
-            <Checkbox checked={hasSpecialChar}>At least one special character</Checkbox>
-            <Checkbox checked={doesNotStartWithSpecialChar}>Does not start with a special character</Checkbox>
-            <Checkbox checked={minLength}>At least 6 characters</Checkbox>
+            <Checkbox checked={hasUpper}>{t("form.upperRequired")}</Checkbox>
+            <Checkbox checked={hasLower}>{t("form.lowerRequired")}</Checkbox>
+            <Checkbox checked={hasNumber}>{t("form.numberRequired")}</Checkbox>
+            <Checkbox checked={hasSpecialChar}>{t("form.specialRequired")}</Checkbox>
+            <Checkbox checked={minLength}>{t("form.sixRequired")}</Checkbox>
+            <Checkbox checked={doesNotStartWithSpecialChar}>{t("form.notStartRequired")}</Checkbox>
           </Space>
-        </Form.Item>
-
-        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-          <Checkbox>Remember me</Checkbox>
         </Form.Item>
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            Submit
+            {t("form.rigister")}
           </Button>
         </Form.Item>
       </Form>

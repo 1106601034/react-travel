@@ -1,9 +1,9 @@
 {
     "general": {
-        "title": "React Travel",
+        "title": "React Traveler",
         "error": "Woops, something went wrong. ",
         "currency": "¥",
-        "star": "星"
+        "star": "Stars"
     },
     "header": {
         "slogan": "Make your journey different",
@@ -101,5 +101,27 @@
         "discount": "discount",
         "showing": "Showing",
         "results": "results"
+    },
+    "form": {
+        "registerSuccess": "Your account has been created.",
+        "registerFail": "We are unable to create your account :(",
+        "loginSuccess": "Nice to see you again!",
+        "loginFail": "We are unable to log you in :(",
+        "tpyeUsername": "An username is required.",
+        "username": "Username",
+        "tpyePassword": "An password is required.",
+        "password": "Password",
+        "confirmPassword": "An password should be confirmed.",
+        "confirmFail": "Passwords can't match.",
+        "confirm": "Confirm Password",
+        "upperRequired": "At least one Upper letter",
+        "lowerRequired": "At least one Lower letter",
+        "numberRequired": "At least one number",
+        "specialRequired": "At least one special character",
+        "notStartRequired": "Does not start with a special character",
+        "sixRequired": "At least 6 characters",
+        "rigister": "Sign up",
+        "stayLogin": "Remember my account",
+        "login": "Log in"
     }
 }

@@ -1,20 +1,24 @@
 .user-layout-container {
     height: 100vh;
-    background-image: url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg") !important;
-    background-size: 100% !important;  
-    background-repeat: no-repeat;
-    background-position: center 110px;
+    width: 100%;
+    position: relative;
 }
 
-.header {
-    background: transparent !important;
-}
-
-.header .lang {
-    float: right;
+.background {
+    background-image: url("https://i2.wp.com/www.wallpapertip.com/wmimgs/152-1527623_free-beach-wallpapers-without-copyright-bermuda-background.jpg") !important;
+    position: absolute;
+    background-size: cover 110%;
+    filter: blur(5px);
+    z-index: index -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .content {
+    position: relative;
+    z-index: 1;
     flex: 1;
     padding: 32px 0;
 }
