@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./HomePage.module.css";
-import { Carousel, SideMenu, ProductCollection, BusinessPartners, } from "../../components";
-import { Row, Col, Typography, Spin, } from "antd";
+import {
+    Carousel, SideMenu, ProductCollection,
+    BusinessPartners, LoadingSpin,
+} from "../../components";
+import { Row, Col, Typography, } from "antd";
 import carouselImage1 from "../../assets/images/carousel_1.jpg";
 import carouselImage2 from "../../assets/images/carousel_2.jpg";
 import carouselImage3 from "../../assets/images/carousel_3.jpg";
@@ -42,11 +45,9 @@ class HomePageComponent extends React.Component<PropsType> {
 
     render() {
         const { t, productList, loading, error, } = this.props;
-        if (loading) {
-            return <div className={styles["spin"]} >
-                <Spin size="large" />
-            </div>
-        }
+        
+        if (loading) { return <LoadingSpin /> }
+
         if (error) {
             return <div>woops, something goes wrong: {error}</div>;
         }

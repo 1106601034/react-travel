@@ -1,19 +1,12 @@
-  .spin {
-    height: 100vh;
-    width: 100%;
-    padding-top: 48vh;
-    padding-left: 48%;
-  }
+.page-side-menu-carousel {
+  margin-top: 20px;
+}
 
-  .page-side-menu-carousel {
-    margin-top: 20px;
-  }
-
-  .product-collection-container {
-    background: white;
-    margin-top: 20px;
-    padding-top: 20px;
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    border-radius: 10px;
-  }
+.product-collection-container {
+  background: white;
+  margin-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+}

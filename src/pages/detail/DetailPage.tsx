@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import axios from "axios";
 import {
-  Spin, Row, Col, Divider, Typography,
+  Row, Col, Divider, Typography,
   Anchor, Menu, DatePicker, Button,
 } from "antd";
 import styles from "./DetailPage.module.css";
-import { Header, Footer, ProductIntro, ProductComments, BusinessPartners, } from "../../components";
+import {
+  Header, Footer, ProductIntro, ProductComments,
+  BusinessPartners, LoadingSpin,
+} from "../../components";
 import { commentMockData } from "./mockup";
 // import { ProductDetailSlice } from "../../redux/productDetail/slice";
 import { useSelector, useAppDispatch, } from "../../redux/hooks";
@@ -44,20 +47,8 @@ export const DetailPage: React.FC = () => {
     fetchData();
   }, []);
 
-  if (loading) {
-    return (
-      <Spin
-        size="large"
-        style={{
-          marginTop: 200,
-          marginBottom: 200,
-          marginLeft: "auto",
-          marginRight: "auto",
-          width: "100%",
-        }}
-      />
-    );
-  }
+  if (loading) { return <LoadingSpin /> }
+
   if (error) {
     return <div>{t("general.error")}{error}</div>;
   }
